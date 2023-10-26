@@ -5,7 +5,7 @@ Our proposed project is to implement the Knuth-Morris-Pratt (KMP) Algorithm for 
 yada
 
 # Data 
-yada
+Spotify songs: (https://www.kaggle.com/datasets/sujaykapadnis/spotify-songs)
 
 # Documents
 The proposal can be found in the `documents/` directory.
