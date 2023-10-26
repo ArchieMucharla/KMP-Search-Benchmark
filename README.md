@@ -1,5 +1,5 @@
 # CS 225 EC Project Summary
-Our proposed final project is to implement the [???] method for searching a large text file for specific patterns.
+Our proposed project is to implement the Knuth-Morris-Pratt (KMP) Algorithm for finding occurrences of a string pattern within a larger string.
 
 # Code
 yada
