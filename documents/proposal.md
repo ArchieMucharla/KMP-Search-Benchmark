@@ -61,3 +61,26 @@ In the /data folder:
 `5_amazon`: contains a list of products and descriptions from Amazon UK (1.34 MB)
 
 
+To clean and refine our data for the KMP algorithm, we used pandas to keep only the relevant text columns from each dataset. We also sampled different amounts from each dataset, giving us a range of file sizes for diverse testing scenarios.
+
+`Spotify:`
+From the Spotify songs file, we only kept the song names (track_name). We took a random sample of 100 random songs and saved them in a new file for the smallest testing set.
+
+
+`Movie:`
+
+From the movie file, we kept the movie names. We chose 1,500 random movies and saved this info in a new file.
+
+
+`Starbucks:`
+In the review data file, we focused on the customer review (Review). We took 850 random reviews and saved them in another file.
+
+
+`Makeup:`
+From the makeup data file, we kept details about the description. All this info was saved in a new file without any random sampling due to the size being good for testing.
+
+
+`Amazon:`
+For the Amazon UK file, we kept the product title (title). We selected 10,000 random products and their categories and put this info in a different file for the largest testing set.
+
+
