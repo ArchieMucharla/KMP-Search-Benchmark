@@ -17,15 +17,15 @@ TEST_CASE("Preprocessing and Single Match", "[weight=5]") {
     std::string text = read_file_content("../../data/1_spotify.csv");
 
     // Use a known pattern from 1_spotify.csv
-    std::string pattern = "love";
+    std::string pattern = "peach";
     std::vector<int> lps;
     
     preprocess_pattern(pattern, lps);
 
     auto result = KMP_search(text, pattern, lps);
 
-    // Expected indices where "policy_pattern_1" appears in text
-    std::vector<int> expected = {index1};  
+    // Expected indices where "peach" appears in text
+    std::vector<int> expected = {39};  
 
     REQUIRE(expected == result);
 }
@@ -34,15 +34,15 @@ TEST_CASE("Preprocessing and Multiple Matches", "[weight=5]") {
     std::string text = read_file_content("../../data/1_spotify.csv");
 
     // Use a known pattern from 1_spotify.csv
-    std::string pattern = "policy_pattern_2";
+    std::string pattern = "love";
     std::vector<int> lps;
     
     preprocess_pattern(pattern, lps);
 
     auto result = KMP_search(text, pattern, lps);
 
-    // Expected indices where "policy_pattern_2" appears in text
-    std::vector<int> expected = {index1, index2, index3};  
+    // Expected indices where "love" appears in text
+    std::vector<int> expected = {106, 118, 526, 1494, 1539, 1627};  
 
     REQUIRE(expected == result);
 }
@@ -51,7 +51,7 @@ TEST_CASE("No Matches", "[weight=5]") {
     std::string text = read_file_content("../../data/1_spotify.csv");
 
     // Use a pattern that doesn't exist in 1_spotify.csv
-    std::string pattern = "non_existent_pattern";
+    std::string pattern = "pineapple";
     std::vector<int> lps;
     
     preprocess_pattern(pattern, lps);
