@@ -2,7 +2,7 @@
 Our proposed project is to implement the Knuth-Morris-Pratt (KMP) Algorithm for finding occurrences of a string pattern within a larger string.
 
 # Code
-yada
+If our project is approved, all of our code files will be found in the code/ directory. We will also provide details on how to run the code.
 
 # Data 
 The test data contains data from Kaggle.com. These are their original links:
