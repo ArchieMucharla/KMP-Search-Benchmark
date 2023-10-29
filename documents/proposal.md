@@ -70,7 +70,6 @@ From the Spotify songs file, we only kept the song names (track_name). We took a
 
 
 `Movie:`
-
 From the movie file, we kept the movie names. We chose 1,500 random movies and saved this info in a new file.
 
 
@@ -84,5 +83,3 @@ From the makeup data file, we kept details about the description. All this info 
 
 `Amazon:`
 For the Amazon UK file, we kept the product title (title). We selected 10,000 random products and their categories and put this info in a different file for the largest testing set.
-
-
