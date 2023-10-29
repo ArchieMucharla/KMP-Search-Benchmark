@@ -15,19 +15,17 @@ Depending on our needs while developing this algorithm, we might also create hel
 
 1. `**void preprocess_pattern(const std::string &pattern, std::vector<int> &lps)**`
 
-**Parameters**:
+**Two Parameters**:
 
 `pattern`: The string pattern that we intend to search for in the main text.
 
 `lps`: A vector to hold the Longest Prefix Suffix (LPS) values, effectively acting as a skip table.
   
-**Returns**:
-  
-  Nothing. The function updates the `lps` array directly.
+**Returns**: Nothing. The function updates the `lps` array directly.
 
 2. `**std::vector<int> KMP_search(const std::string &text, const std::string &pattern, const std::vector<int> &lps)**`
 
-**Parameters**:
+**Three Parameters**:
 
 `text`: The main text where the pattern is to be searched.
 
@@ -35,8 +33,7 @@ Depending on our needs while developing this algorithm, we might also create hel
 
 `lps`: The preprocessed LPS array.
   
-**Returns**:
-  A vector of integers indicating the starting indices of all occurrences of the pattern in the text.
+**Returns**: A vector of integers indicating the starting indices of all occurrences of the pattern in the text.
 
 # Proposed Tests
 **Test 1**: Utilize a text composed solely of the letter 'A' and a pattern of 'AA'. The algorithm should correctly identify all occurrences of 'AA'.
