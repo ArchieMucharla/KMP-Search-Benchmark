@@ -1,45 +1,45 @@
 #include <catch2/catch_test_macros.hpp>
-#include "KMP.h"
-#include <sstream>
+#include <KMP.h>
+#include <vector>
 
-/**
- * Reads in the dataset and searches for the pattern "latin pop"
- * The pattern exists multiple times in the csv under the playlist_subgenre column.
- */
-TEST_CASE("Find Multiple Occurrences of 'latin pop'", "[weight=5]")
-{
-    int expected = 6;  // The pattern "latin pop" appears 6 times in your data set
-    std::string infile = "../../data/your-dataset.csv";
-    std::string search = "latin pop";
-    int out = KMP_count(infile, search);
+// Assume preprocess_pattern and KMP_search are declared and defined
+// If they are in another file, you should include that file here
 
-    REQUIRE(expected == out);
+TEST_CASE("KMP Preprocessing and Single Match", "[weight=5]") {
+    std::string pattern = "CACATCTA";
+    std::vector<int> lps;
+    
+    preprocess_pattern(pattern, lps);
+
+    std::string text = "TGATTTTAAAAAAACACTTAACACATCTAGATAGAATAGTACTCTGCCCTATTTGAGGGAACAGTCTCAAACNATGAAGTACATGATATTTAATGCCCTA";
+    auto result = KMP_search(text, pattern, lps);
+    std::vector<int> expected = {27};  // 27 is the index where the pattern starts in the text
+
+    REQUIRE(expected == result);
 }
 
-/**
- * Reads in the dataset and searches for the pattern "Ariana Grande"
- * The pattern exists one time in the csv under the track_artist column.
- */
-TEST_CASE("Find Single Occurrence of 'Ariana Grande'", "[weight=5]")
-{
-    int expected = 1;  // The pattern "Ariana Grande" appears 1 time in your data set
-    std::string infile = "../../data/your-dataset.csv";
-    std::string search = "Ariana Grande";
-    int out = KMP_count(infile, search);
+TEST_CASE("KMP Preprocessing and No Match", "[weight=5]") {
+    std::string pattern = "AAAAAAAAAA";
+    std::vector<int> lps;
 
-    REQUIRE(expected == out);
+    preprocess_pattern(pattern, lps);
+
+    std::string text = "TGATTTTAAAAAAACACTTAACACATCTAGATAGAATAGTACTCTGCCCTATTTGAGGGAACAGTCTCAAACNATGAAGTACATGATATTTAATGCCCTA";
+    auto result = KMP_search(text, pattern, lps);
+    std::vector<int> expected;  // empty vector since there should be no match
+
+    REQUIRE(expected == result);
 }
 
-/**
- * Reads in the dataset and searches for a pattern that does not exist "XYZZYX"
- * The pattern does not exist in the csv.
- */
-TEST_CASE("No Occurrence of Non-Existent Pattern", "[weight=5]")
-{
-    int expected = 0;  // The pattern "XYZZYX" does not appear in your data set
-    std::string infile = "../../data/your-dataset.csv";
-    std::string search = "XYZZYX";
-    int out = KMP_count(infile, search);
+TEST_CASE("KMP Preprocessing and Multiple Matches", "[weight=5]") {
+    std::string pattern = "CCTT";
+    std::vector<int> lps;
 
-    REQUIRE(expected == out);
+    preprocess_pattern(pattern, lps);
+
+    std::string text = "CCTTCCTTTGATTTTCCTT";
+    auto result = KMP_search(text, pattern, lps);
+    std::vector<int> expected = {0, 4, 15};  // multiple occurrences at these indices
+
+    REQUIRE(expected == result);
 }
