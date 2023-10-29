@@ -63,7 +63,7 @@ In the /data folder:
 
 # Data Cleaning
 
-To clean and refine our data for the KMP algorithm, we used pandas to keep only the relevant text columns from each dataset. We also sampled different amounts from each dataset, giving us a range of file sizes for diverse testing scenarios. The code we used for data cleaning can be found in `data/` and is called `data_cleaning.py`.
+To clean and refine our data for the KMP algorithm, we used pandas to keep only the relevant text columns from each dataset. We also sampled different amounts from each dataset, giving us a range of file sizes for diverse testing scenarios. The code we used for data cleaning can be found in `data/` and is called `data_cleaning.ipymb`.
 
 `Spotify:`
 From the Spotify songs file, we only kept the song names (column called 'track_name'). We took a random sample of 100 random songs and saved them in a new file for the smallest testing set.
