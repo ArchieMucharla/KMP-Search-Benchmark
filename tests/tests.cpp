@@ -11,7 +11,7 @@ TEST_CASE("Find Multiple Occurrences of 'latin pop'", "[weight=5]")
     int expected = 6;  // The pattern "latin pop" appears 6 times in your data set
     std::string infile = "../../data/your-dataset.csv";
     std::string search = "latin pop";
-    int out = blackbox_count(infile, search);
+    int out = KMP_count(infile, search);
 
     REQUIRE(expected == out);
 }
@@ -25,7 +25,7 @@ TEST_CASE("Find Single Occurrence of 'Ariana Grande'", "[weight=5]")
     int expected = 1;  // The pattern "Ariana Grande" appears 1 time in your data set
     std::string infile = "../../data/your-dataset.csv";
     std::string search = "Ariana Grande";
-    int out = blackbox_count(infile, search);
+    int out = KMP_count(infile, search);
 
     REQUIRE(expected == out);
 }
@@ -39,7 +39,7 @@ TEST_CASE("No Occurrence of Non-Existent Pattern", "[weight=5]")
     int expected = 0;  // The pattern "XYZZYX" does not appear in your data set
     std::string infile = "../../data/your-dataset.csv";
     std::string search = "XYZZYX";
-    int out = blackbox_count(infile, search);
+    int out = KMP_count(infile, search);
 
     REQUIRE(expected == out);
 }
