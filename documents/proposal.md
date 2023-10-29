@@ -43,6 +43,10 @@ Depending on our needs while developing this algorithm, we might also create hel
 
 **Test 3**: Conduct a performance test using a large text file and a relatively frequent pattern, to evaluate the efficiency of the algorithm under more realistic conditions.
 
+Test case that verifies whether KMP_search finds a known pattern in a string.
+Test case that verifies whether KMP_search correctly returns an empty vector for a non-matching pattern.
+Test case that verifies whether KMP_search correctly finds multiple occurrences of a pattern in a string.
+
 # Data
 For our test datasets, we will be using existing datasets from Kaggle.com and have stored them in /data. For small-scale testing, we manually shortened data sets to 100 and 500 lines to be able to rigorously test the algorithm's functionality. For large-scale testing, we intend to ???
 
