@@ -5,15 +5,20 @@ Our proposed project is to implement the Knuth-Morris-Pratt (KMP) Algorithm for 
 yada
 
 # Data 
-Spotify songs: https://www.kaggle.com/datasets/sujaykapadnis/spotify-songs
-Amazon UK Products: https://www.kaggle.com/datasets/asaniczka/amazon-uk-products-dataset-2023
-Horror Movies: https://www.kaggle.com/datasets/sujaykapadnis/horror-movies-profits-dataset
-Starbucks Reviews: https://www.kaggle.com/datasets/harshalhonde/starbucks-reviews-dataset
-Makeup Products: https://www.kaggle.com/datasets/shivd24coder/cosmetic-brand-products-dataset?select=output.csv
+The test data contains data from Kaggle.com. These are their original links:
 
+Spotify songs: https://www.kaggle.com/datasets/sujaykapadnis/spotify-songs
+
+Amazon UK Products: https://www.kaggle.com/datasets/asaniczka/amazon-uk-products-dataset-2023
+
+Horror Movies: https://www.kaggle.com/datasets/sujaykapadnis/horror-movies-profits-dataset
+
+Starbucks Reviews: https://www.kaggle.com/datasets/harshalhonde/starbucks-reviews-dataset
+
+Makeup Products: https://www.kaggle.com/datasets/shivd24coder/cosmetic-brand-products-dataset?select=output.csv
 
 # Documents
 The proposal can be found in the `documents/` directory.
 
 # Feedback
-All feedback from our project mentor can be found in the `feedback/` directory.
+All future feedback from our project mentor can be found in the `feedback/` directory.
