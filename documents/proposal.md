@@ -1,5 +1,3 @@
-
-
 # Academic Reference
 The algorithm we plan to implement is the Knuth-Morris-Pratt (KMP) string matching algorithm. The foundational academic paper we will refer to is by Donald Knuth, Vaughan Pratt, and James H. Morris (https://epubs.siam.org/doi/10.1137/0206024).
 
@@ -11,9 +9,20 @@ In addition, for a more approachable explanation and pseudocode, we'll be refere
 The KMP Algorithm offers an efficient way to find a substring within a given text. This algorithm preprocesses the pattern to generate a Longest Prefix Suffix (LPS) array in linear time complexity O(m), where m is the length of the pattern. Then, the algorithm utilizes the LPS array to scan the main text and find matches or skip sections. This occurs in O(n) time, where n is the length of the text. This makes KMP substantially faster than naive approaches, especially for large texts.
 
 # Function I/O
+**`std::string read_file_content(const std::string& filename)`**
+
+**Purpose**: To read the content of a file specified by its filename and return it as a single string for further processing.
+
+**Parameters**: The path to a data set.
+
+**Returns**: The provided file in the form of a single string.
+
+
 **`void preprocess_pattern(const std::string &pattern, std::vector<int> &lps)`**
 
-**Two Parameters**:
+**Purpose**: To preprocess the given pattern string and populate the Longest Prefix Suffix (LPS) array, enabling efficient pattern searching using the KMP algorithm.
+
+**Parameters**:
 
 `pattern`: The string pattern that we intend to search for in the main text.
 
@@ -24,7 +33,9 @@ The KMP Algorithm offers an efficient way to find a substring within a given tex
 
 **`std::vector<int> KMP_search(const std::string &text, const std::string &pattern, const std::vector<int> &lps)`**
 
-**Three Parameters**:
+**Purpose**: To find all occurrences of a given pattern in a given text string using the Knuth-Morris-Pratt (KMP) algorithm, leveraging a preprocessed LPS array for efficient searching.
+
+**Parameters**:
 
 `text`: The main text where the pattern is to be searched.
 
