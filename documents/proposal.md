@@ -39,9 +39,9 @@ Depending on our needs while developing this algorithm, we might also create hel
 # Proposed Tests
 **Test 1**: Verifies whether KMP_search finds a known pattern in a string.
 
-**Test 2**: Test case that verifies whether KMP_search correctly returns an empty vector for a non-matching pattern.
+**Test 2**: Verifies whether KMP_search correctly returns an empty vector for a non-matching pattern.
 
-**Test 3**: Test case that verifies whether KMP_search correctly finds multiple occurrences of a pattern in a string.
+**Test 3**: Verifies whether KMP_search correctly finds multiple occurrences of a pattern in a string.
 
 # Data
 
