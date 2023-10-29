@@ -50,15 +50,15 @@ The initial datasets are from Kaggle. We searched for datasets with enough textu
 In the /data folder:
 
 
-`1_spotify`: contains top songs on Spotify (smallest - 5.72 KB)
+`1_spotify`: contains top songs on Spotify (smallest - 1.71 KB)
 
-`2_horror_movie`: contains a list of horror movies and associated information (33.2 KB)
+`2_horror_movie`: contains a list of horror movies and associated information (23 KB)
 
-`3_starbucks_reviews`: contains reviews from Starbucks customers (453 KB)
+`3_starbucks_reviews`: contains reviews from Starbucks customers (394 KB)
 
-`4_makeup`: contains a list of makeup products and related information (922 KB)
+`4_makeup`: contains a list of makeup products and related information (573 KB)
 
-`5_amazon`: contains a list of products and descriptions from Amazon UK (1.34 MB)
+`5_amazon`: contains a list of products and descriptions from Amazon UK (1.15 MB)
 
 
 # Data Cleaning
