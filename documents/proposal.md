@@ -13,7 +13,7 @@ The KMP Algorithm offers an efficient way to find a substring within a given tex
 # Function I/O
 Depending on our needs while developing this algorithm, we might also create helper functions for readability,
 
-`**void preprocess_pattern(const std::string &pattern, std::vector<int> &lps)**`
+1. `**void preprocess_pattern(const std::string &pattern, std::vector<int> &lps)**`
 
 **Parameters**:
   `pattern`: The string pattern that we intend to search for in the main text.
@@ -22,7 +22,7 @@ Depending on our needs while developing this algorithm, we might also create hel
 **Returns**:
   Nothing. The function updates the `lps` array directly.
 
-`**std::vector<int> KMP_search(const std::string &text, const std::string &pattern, const std::vector<int> &lps)**`
+2. `**std::vector<int> KMP_search(const std::string &text, const std::string &pattern, const std::vector<int> &lps)**`
 
 **Parameters**:
   `text`: The main text where the pattern is to be searched.
