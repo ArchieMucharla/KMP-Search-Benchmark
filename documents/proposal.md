@@ -11,16 +11,22 @@ The KMP Algorithm offers an efficient way to find a substring within a given tex
 # Function I/O
 **`std::string read_file_content(const std::string& filename)`**
 
-**Purpose**: To read the content of a file specified by its filename and return it as a single string for further processing.
+**Purpose**:
+
+To read the content of a file specified by its filename and return it as a single string for further processing.
 
 **Parameters**: The path to a data set.
 
-**Returns**: The provided file in the form of a single string.
+**Returns**:
+
+The provided file in the form of a single string.
 
 
 **`void preprocess_pattern(const std::string &pattern, std::vector<int> &lps)`**
 
-**Purpose**: To preprocess the given pattern string and populate the Longest Prefix Suffix (LPS) array, enabling efficient pattern searching using the KMP algorithm.
+**Purpose**:
+
+To preprocess the given pattern string and populate the Longest Prefix Suffix (LPS) array, enabling efficient pattern searching using the KMP algorithm.
 
 **Parameters**:
 
@@ -28,12 +34,16 @@ The KMP Algorithm offers an efficient way to find a substring within a given tex
 
 `lps`: A vector to hold the Longest Prefix Suffix (LPS) values, effectively acting as a skip table.
   
-**Returns**: Nothing. The function updates the `lps` array directly.
+**Returns**:
+
+Nothing. The function updates the `lps` array directly.
 
 
 **`std::vector<int> KMP_search(const std::string &text, const std::string &pattern, const std::vector<int> &lps)`**
 
-**Purpose**: To find all occurrences of a given pattern in a given text string using the Knuth-Morris-Pratt (KMP) algorithm, leveraging a preprocessed LPS array for efficient searching.
+**Purpose**:
+
+To find all occurrences of a given pattern in a given text string using the Knuth-Morris-Pratt (KMP) algorithm, leveraging a preprocessed LPS array for efficient searching.
 
 **Parameters**:
 
@@ -43,7 +53,9 @@ The KMP Algorithm offers an efficient way to find a substring within a given tex
 
 `lps`: The preprocessed LPS array.
   
-**Returns**: A vector of integers indicating the starting indices of all occurrences of the pattern in the text.
+**Returns**:
+
+A vector of integers indicating the starting indices of all occurrences of the pattern in the text.
 
 Depending on our needs while developing this algorithm, we might also create helper functions for readability.
 
