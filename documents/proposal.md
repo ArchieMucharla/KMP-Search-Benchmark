@@ -45,3 +45,26 @@ Depending on our needs while developing this algorithm, we might also create hel
 
 # Data
 For our test datasets, we will be using existing datasets from Kaggle.com and have stored them in /data. For small-scale testing, we manually shortened data sets to 100 and 500 lines to be able to rigorously test the algorithm's functionality. For large-scale testing, we intend to ???
+
+
+
+Code for data clean-up:
+
+
+import pandas as pd; //using pandas
+
+
+1_Spotify:
+df = pd.read_csv('/Users/archanamucharla/Downloads/reviews_data.csv')
+subset = df[['name','location','Review']]
+subset = subset.sample(n=850)
+subset.to_csv('/Users/archanamucharla/Downloads/3_starbucks.csv', index=False)
+
+
+2_movie
+df = pd.read_csv('/Users/archanamucharla/Downloads/movie_profit.csv')
+subset = df[['movie','genre']]
+subset = subset.sample(n=1500)
+subset.to_csv('/Users/archanamucharla/Downloads/2_movie.csv', index=False)
+
+
