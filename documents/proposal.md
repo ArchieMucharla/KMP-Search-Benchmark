@@ -45,8 +45,6 @@ Depending on our needs while developing this algorithm, we might also create hel
 
 # Data
 
-
-Data Description:
 The initial datasets are from Kaggle. We searched for datasets with enough textual content as KMP is based on string searching.
 
 In the /data folder:
