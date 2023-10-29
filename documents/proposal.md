@@ -37,15 +37,11 @@ The KMP Algorithm offers an efficient way to find a substring within a given tex
 Depending on our needs while developing this algorithm, we might also create helper functions for readability.
 
 # Proposed Tests
-**Test 1**: Utilize a text composed solely of the letter 'A' and a pattern of 'AA'. The algorithm should correctly identify all occurrences of 'AA'.
+**Test 1**: Verifies whether KMP_search finds a known pattern in a string.
 
-**Test 2**: Test with a text containing a variety of characters and a pattern of 'abc'. The algorithm should correctly identify all instances of 'abc'.
+**Test 2**: Test case that verifies whether KMP_search correctly returns an empty vector for a non-matching pattern.
 
-**Test 3**: Conduct a performance test using a large text file and a relatively frequent pattern, to evaluate the efficiency of the algorithm under more realistic conditions.
-
-Test case that verifies whether KMP_search finds a known pattern in a string.
-Test case that verifies whether KMP_search correctly returns an empty vector for a non-matching pattern.
-Test case that verifies whether KMP_search correctly finds multiple occurrences of a pattern in a string.
+**Test 3**: Test case that verifies whether KMP_search correctly finds multiple occurrences of a pattern in a string.
 
 # Data
 
