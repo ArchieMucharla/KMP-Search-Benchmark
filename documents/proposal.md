@@ -1,5 +1,5 @@
 # Academic Reference
-The algorithm we plan to implement is the Knuth-Morris-Pratt (KMP) string matching algorithm. The foundational academic paper we will refer to is by Donald Knuth, Vaughan Pratt, and James H. Morris (https://epubs.siam.org/doi/10.1137/0206024).
+The algorithm we plan to implement is the Knuth-Morris-Pratt (KMP) string-matching algorithm. The foundational academic paper we will refer to is by Donald Knuth, Vaughan Pratt, and James H. Morris (https://epubs.siam.org/doi/10.1137/0206024).
 
 For a different explanation of the algorithm to help us better understand, we will be referencing Jayadev Misra's explanation of the KMP algorithm that he wrote for the University of Texas (https://www.cs.utexas.edu/users/misra/Notes.dir/KMP.pdf).
 
