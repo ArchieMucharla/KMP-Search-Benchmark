@@ -9,13 +9,19 @@ In addition, for a more approachable explanation and pseudocode, we'll be refere
 The KMP Algorithm offers an efficient way to find a substring within a given text. This algorithm preprocesses the pattern to generate a Longest Prefix Suffix (LPS) array in linear time complexity O(m), where m is the length of the pattern. Then, the algorithm utilizes the LPS array to scan the main text and find matches or skip sections. This occurs in O(n) time, where n is the length of the text. This makes KMP substantially faster than naive approaches, especially for large texts.
 
 # Function I/O
+
+These are our foundational functions for our implementation of the KMP Algorithm. Depending on our needs while developing this algorithm, we might also create helper functions for readability.
+
+
 **`std::string read_file_content(const std::string& filename)`**
 
 **Purpose**:
 
 To read the content of a file specified by its filename and return it as a single string for further processing.
 
-**Parameters**: The path to a data set.
+**Parameters**:
+
+The path to a data set.
 
 **Returns**:
 
@@ -56,8 +62,6 @@ To find all occurrences of a given pattern in a given text string using the Knut
 **Returns**:
 
 A vector of integers indicating the starting indices of all occurrences of the pattern in the text.
-
-Depending on our needs while developing this algorithm, we might also create helper functions for readability.
 
 # Proposed Tests
 **Test 1**: Verifies whether KMP_search finds a known pattern in a string.
