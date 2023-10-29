@@ -27,8 +27,8 @@ Returns:
   A vector of integers indicating the starting indices of all occurrences of the pattern in the text.
 
 # Proposed Tests
-**Test 1**: Utilize a text composed solely of the letter 'A' and a pattern of 'AA'. The algorithm should correctly identify all occurrences of 'AA'.
-**Test 2**: Test with a text containing a variety of characters and a pattern of 'abc'. The algorithm should correctly identify all instances of 'abc'.
+**Test 1**: Utilize a text composed solely of the letter 'A' and a pattern of 'AA'. The algorithm should correctly identify all occurrences of 'AA'. \n
+**Test 2**: Test with a text containing a variety of characters and a pattern of 'abc'. The algorithm should correctly identify all instances of 'abc'. \n
 **Test 3**: Conduct a performance test using a large text file and a relatively frequent pattern, to evaluate the efficiency of the algorithm under more realistic conditions.
 
 # Data
