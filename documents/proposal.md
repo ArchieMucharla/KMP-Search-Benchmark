@@ -48,8 +48,14 @@ Test case that verifies whether KMP_search correctly returns an empty vector for
 Test case that verifies whether KMP_search correctly finds multiple occurrences of a pattern in a string.
 
 # Data
-For our test datasets, we will be using existing datasets from Kaggle.com and have stored them in /data. For small-scale testing, we manually shortened data sets to 100 and 500 lines to be able to rigorously test the algorithm's functionality. For large-scale testing, we intend to ???
 
 
+Data Description:
+The initial datasets are from Kaggle. We searched for datasets with enough textual content as KMP is based on string searching.
 
-
+In the /data folder:
+'1_spotify': contains top songs on Spotify (smallest - 5.72 KB)
+'2_horror_movie': contains a list of horror movies and associated information (33.2 KB)
+'3_starbucks_reviews': contains reviews from Starbucks customers (453 KB)
+'4_makeup': contains a list of makeup products and related information (922 KB)
+'5_amazon': contains a list of products and descriptions from Amazon UK (1.34 MB)
