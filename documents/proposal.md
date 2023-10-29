@@ -43,7 +43,7 @@ Depending on our needs while developing this algorithm, we might also create hel
 
 **Test 3**: Verifies whether KMP_search correctly finds multiple occurrences of a pattern in a string.
 
-# Data
+# Data Description
 
 The initial datasets are from Kaggle. We searched for datasets with enough textual content as KMP is based on string searching.
 
@@ -60,6 +60,8 @@ In the /data folder:
 
 `5_amazon`: contains a list of products and descriptions from Amazon UK (1.34 MB)
 
+
+# Data Cleaning
 
 To clean and refine our data for the KMP algorithm, we used pandas to keep only the relevant text columns from each dataset. We also sampled different amounts from each dataset, giving us a range of file sizes for diverse testing scenarios.
 
