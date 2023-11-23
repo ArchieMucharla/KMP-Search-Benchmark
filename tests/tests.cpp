@@ -18,7 +18,8 @@ TEST_CASE("Preprocessing and Single Match", "[weight=5]") {
 
     // Use a known pattern from 1_spotify.csv
     std::string pattern = "peach";
-    std::vector<int> lps;
+    // std::vector<int> lps;
+    std::vector<int> lps(pattern.size(), 0);
     
     preprocess_pattern(pattern, lps);
 
@@ -35,7 +36,8 @@ TEST_CASE("Preprocessing and Multiple Matches", "[weight=5]") {
 
     // Use a known pattern from 1_spotify.csv
     std::string pattern = "love";
-    std::vector<int> lps;
+    // std::vector<int> lps;
+    std::vector<int> lps(pattern.size(), 0);
     
     preprocess_pattern(pattern, lps);
 
@@ -52,7 +54,8 @@ TEST_CASE("No Matches", "[weight=5]") {
 
     // Use a pattern that doesn't exist in 1_spotify.csv
     std::string pattern = "pineapple";
-    std::vector<int> lps;
+    // std::vector<int> lps;
+    std::vector<int> lps(pattern.size(), 0);
     
     preprocess_pattern(pattern, lps);
 
