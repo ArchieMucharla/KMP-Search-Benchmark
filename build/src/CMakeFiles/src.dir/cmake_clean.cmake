@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/src.dir/KMP.cpp.o"
   "CMakeFiles/src.dir/KMP.cpp.o.d"
-  "CMakeFiles/src.dir/main.cpp.o"
-  "CMakeFiles/src.dir/main.cpp.o.d"
   "libsrc.a"
   "libsrc.pdb"
 )

@@ -1,3 +1,7 @@
 add_test( [==[Preprocessing and Single Match]==] [==[/workspaces/CS 225/CS_225_EC/build/test]==] [==[Preprocessing and Single Match]==]  )
 set_tests_properties( [==[Preprocessing and Single Match]==] PROPERTIES WORKING_DIRECTORY [==[/workspaces/CS 225/CS_225_EC/build]==])
-set( test_TESTS [==[Preprocessing and Single Match]==])
+add_test( [==[Preprocessing and Multiple Matches]==] [==[/workspaces/CS 225/CS_225_EC/build/test]==] [==[Preprocessing and Multiple Matches]==]  )
+set_tests_properties( [==[Preprocessing and Multiple Matches]==] PROPERTIES WORKING_DIRECTORY [==[/workspaces/CS 225/CS_225_EC/build]==])
+add_test( [==[No Matches]==] [==[/workspaces/CS 225/CS_225_EC/build/test]==] [==[No Matches]==]  )
+set_tests_properties( [==[No Matches]==] PROPERTIES WORKING_DIRECTORY [==[/workspaces/CS 225/CS_225_EC/build]==])
+set( test_TESTS [==[Preprocessing and Single Match]==] [==[Preprocessing and Multiple Matches]==] [==[No Matches]==])

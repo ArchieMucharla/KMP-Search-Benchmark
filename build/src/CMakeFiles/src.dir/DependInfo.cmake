@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/workspaces/CS 225/CS_225_EC/src/KMP.cpp" "src/CMakeFiles/src.dir/KMP.cpp.o" "gcc" "src/CMakeFiles/src.dir/KMP.cpp.o.d"
-  "/workspaces/CS 225/CS_225_EC/src/main.cpp" "src/CMakeFiles/src.dir/main.cpp.o" "gcc" "src/CMakeFiles/src.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.
