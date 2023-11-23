@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "KMP.h" // Assume preprocess_pattern and KMP_search are declared and defined in here
+#include "KMP.h"
 
 // reads the content of a given text file and returns it as a single string
 std::string read_file_content(const std::string& filename) {
