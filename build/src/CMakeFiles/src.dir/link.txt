@@ -1,2 +1,2 @@
-/usr/bin/ar qc libsrc.a CMakeFiles/src.dir/KMP.cpp.o CMakeFiles/src.dir/main.cpp.o
+/usr/bin/ar qc libsrc.a CMakeFiles/src.dir/KMP.cpp.o
 /usr/bin/ranlib libsrc.a
