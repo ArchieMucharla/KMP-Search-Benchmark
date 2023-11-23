@@ -3,30 +3,30 @@
 cmake_policy(SET CMP0009 NEW)
 
 # src_sources at src/CMakeLists.txt:5 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/workspaces/CS 225/CS_225_EC/src/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/workspaces/cs225ec/src/*.cpp")
 set(OLD_GLOB
-  "/workspaces/CS 225/CS_225_EC/src/KMP.cpp"
+  "/workspaces/cs225ec/src/KMP.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/workspaces/CS 225/CS_225_EC/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/workspaces/cs225ec/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # src_sources at src/CMakeLists.txt:5 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/workspaces/CS 225/CS_225_EC/src/*.hpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/workspaces/cs225ec/src/*.hpp")
 set(OLD_GLOB
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/workspaces/CS 225/CS_225_EC/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/workspaces/cs225ec/build/CMakeFiles/cmake.verify_globs")
 endif()
 
 # tests_src at CMakeLists.txt:101 (file)
-file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/workspaces/CS 225/CS_225_EC/tests/*.cpp")
+file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/workspaces/cs225ec/tests/*.cpp")
 set(OLD_GLOB
-  "/workspaces/CS 225/CS_225_EC/tests/tests.cpp"
+  "/workspaces/cs225ec/tests/tests.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
-  file(TOUCH_NOCREATE "/workspaces/CS 225/CS_225_EC/build/CMakeFiles/cmake.verify_globs")
+  file(TOUCH_NOCREATE "/workspaces/cs225ec/build/CMakeFiles/cmake.verify_globs")
 endif()

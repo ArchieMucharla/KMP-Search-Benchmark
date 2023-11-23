@@ -1,7 +1,7 @@
-/workspaces/CS 225/CS_225_EC/build/CMakeFiles/test.dir
-/workspaces/CS 225/CS_225_EC/build/CMakeFiles/main.dir
-/workspaces/CS 225/CS_225_EC/build/CMakeFiles/edit_cache.dir
-/workspaces/CS 225/CS_225_EC/build/CMakeFiles/rebuild_cache.dir
-/workspaces/CS 225/CS_225_EC/build/src/CMakeFiles/src.dir
-/workspaces/CS 225/CS_225_EC/build/src/CMakeFiles/edit_cache.dir
-/workspaces/CS 225/CS_225_EC/build/src/CMakeFiles/rebuild_cache.dir
+/workspaces/cs225ec/build/CMakeFiles/test.dir
+/workspaces/cs225ec/build/CMakeFiles/main.dir
+/workspaces/cs225ec/build/CMakeFiles/edit_cache.dir
+/workspaces/cs225ec/build/CMakeFiles/rebuild_cache.dir
+/workspaces/cs225ec/build/src/CMakeFiles/src.dir
+/workspaces/cs225ec/build/src/CMakeFiles/edit_cache.dir
+/workspaces/cs225ec/build/src/CMakeFiles/rebuild_cache.dir

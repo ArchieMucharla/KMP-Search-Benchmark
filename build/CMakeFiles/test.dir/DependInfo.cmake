@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/workspaces/CS 225/CS_225_EC/tests/tests.cpp" "CMakeFiles/test.dir/tests/tests.cpp.o" "gcc" "CMakeFiles/test.dir/tests/tests.cpp.o.d"
+  "/workspaces/cs225ec/tests/tests.cpp" "CMakeFiles/test.dir/tests/tests.cpp.o" "gcc" "CMakeFiles/test.dir/tests/tests.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/workspaces/CS 225/CS_225_EC/build/src/CMakeFiles/src.dir/DependInfo.cmake"
+  "/workspaces/cs225ec/build/src/CMakeFiles/src.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

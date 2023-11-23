@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/workspaces/CS 225/CS_225_EC"
+CMAKE_SOURCE_DIR = /workspaces/cs225ec
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/workspaces/CS 225/CS_225_EC/build"
+CMAKE_BINARY_DIR = /workspaces/cs225ec/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/workspaces/CS 225/CS_225_EC/build/CMakeFiles" "/workspaces/CS 225/CS_225_EC/build/src//CMakeFiles/progress.marks"
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/workspaces/CS 225/CS_225_EC/build/CMakeFiles" 0
+	cd /workspaces/cs225ec/build && $(CMAKE_COMMAND) -E cmake_progress_start /workspaces/cs225ec/build/CMakeFiles /workspaces/cs225ec/build/src//CMakeFiles/progress.marks
+	cd /workspaces/cs225ec/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /workspaces/cs225ec/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
+	cd /workspaces/cs225ec/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,23 +103,23 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /workspaces/cs225ec/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /workspaces/cs225ec/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(CMAKE_COMMAND) -P "/workspaces/CS 225/CS_225_EC/build/CMakeFiles/VerifyGlobs.cmake"
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /workspaces/cs225ec/build && $(CMAKE_COMMAND) -P /workspaces/cs225ec/build/CMakeFiles/VerifyGlobs.cmake
+	cd /workspaces/cs225ec/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/src.dir/rule:
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/src.dir/rule
+	cd /workspaces/cs225ec/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/src.dir/rule
 .PHONY : src/CMakeFiles/src.dir/rule
 
 # Convenience name for target.
@@ -128,7 +128,7 @@ src: src/CMakeFiles/src.dir/rule
 
 # fast build rule for target.
 src/fast:
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
+	cd /workspaces/cs225ec/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
 KMP.o: KMP.cpp.o
@@ -136,7 +136,7 @@ KMP.o: KMP.cpp.o
 
 # target to build an object file
 KMP.cpp.o:
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/KMP.cpp.o
+	cd /workspaces/cs225ec/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/KMP.cpp.o
 .PHONY : KMP.cpp.o
 
 KMP.i: KMP.cpp.i
@@ -144,7 +144,7 @@ KMP.i: KMP.cpp.i
 
 # target to preprocess a source file
 KMP.cpp.i:
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/KMP.cpp.i
+	cd /workspaces/cs225ec/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/KMP.cpp.i
 .PHONY : KMP.cpp.i
 
 KMP.s: KMP.cpp.s
@@ -152,7 +152,7 @@ KMP.s: KMP.cpp.s
 
 # target to generate assembly for a file
 KMP.cpp.s:
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/KMP.cpp.s
+	cd /workspaces/cs225ec/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/KMP.cpp.s
 .PHONY : KMP.cpp.s
 
 # Help Target
@@ -178,7 +178,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(CMAKE_COMMAND) -P "/workspaces/CS 225/CS_225_EC/build/CMakeFiles/VerifyGlobs.cmake"
-	cd "/workspaces/CS 225/CS_225_EC/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /workspaces/cs225ec/build && $(CMAKE_COMMAND) -P /workspaces/cs225ec/build/CMakeFiles/VerifyGlobs.cmake
+	cd /workspaces/cs225ec/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
