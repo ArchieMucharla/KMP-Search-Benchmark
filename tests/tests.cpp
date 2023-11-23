@@ -13,6 +13,23 @@ std::string read_file_content(const std::string& filename) {
     return buffer.str();
 }
 
+TEST_CASE("LPS Table - preprocess test", "[weight=5]") {
+    // Choose a pattern
+    std::string pattern = "ABABAC";
+
+    // Manually computed LPS table for "ABABAC"
+    std::vector<int> expectedLPS = {0, 0, 1, 2, 3, 0};
+
+    // Vector to store the result from preprocess_pattern
+    std::vector<int> lps(pattern.size(), 0);
+
+    // Generate LPS table using preprocess_pattern
+    preprocess_pattern(pattern, lps);
+
+    // Verify that the generated LPS table matches the expected one
+    REQUIRE(lps == expectedLPS);
+}
+
 TEST_CASE("Preprocessing and Single Match", "[weight=5]") {
     std::string text = read_file_content("../../data/1_spotify.csv");
 
