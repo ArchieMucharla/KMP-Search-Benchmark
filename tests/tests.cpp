@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "KMP.h"
+#include "../src/KMP.h"
 
 // reads the content of a given text file and returns it as a single string
 std::string read_file_content(const std::string& filename) {
