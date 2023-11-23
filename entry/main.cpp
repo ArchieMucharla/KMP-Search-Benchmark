@@ -8,7 +8,8 @@ int main() {
     std::string pattern = "search_pattern"; // Replace with the pattern you want to search
 
     // Preprocess the pattern
-    std::vector<int> lps;
+    // std::vector<int> lps;
+    std::vector<int> lps(pattern.size(), 0);
     preprocess_pattern(pattern, lps);
 
     // Perform the KMP search
