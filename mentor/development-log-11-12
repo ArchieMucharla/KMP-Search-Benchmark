@@ -1,0 +1,14 @@
+What goals you had set for the week and whether they were accomplished or not:
+We had a lot of midterms this week, so we didn't make any progress on implementing our KMP algorithm. However, we met up and made sure we understood Professor Soloman's feedback. In addition, we reviewed the project requirements.
+
+
+What specific tasks each member of your team accomplished in the week:
+N/A
+
+
+What problems you encountered (if any) that prevented you from meeting your goals:
+Scheduling conflicts due to midterms.
+
+
+What you plan to accomplish next week:
+Next week, we will be implementing our codebase. We will first start with preprocess_pattern(), and then KMP_search(). In addition, we will improve our test cases based on Professor Soloman's feedback.
