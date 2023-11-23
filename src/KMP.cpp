@@ -48,6 +48,34 @@ void preprocess_pattern(const std::string& pattern, std::vector<int>& lps) {
 // LPS -- The preprocessed LPS array.
 // RETURNS -- A vector of integers indicating the starting indices of all occurrences of the pattern in the text.
 std::vector<int> KMP_search(const std::string& text, const std::string& pattern, const std::vector<int>& lps) {
-    std::vector<int> result;
-    return result;
+    std::vector<int> matchStartIndices;
+
+    // Index for traversing the pattern
+    int patternIndex = 0;
+
+    // Index for traversing the text
+    int textIndex = 0;
+
+    while (textIndex < text.size()) {
+        if (pattern[patternIndex] == text[textIndex]) {
+            patternIndex++;
+            textIndex++;
+        }
+
+        if (patternIndex == pattern.size()) {
+            // Match found, add starting index to the result vector
+            matchStartIndices.push_back(textIndex - patternIndex);
+            patternIndex = lps[patternIndex - 1]; // Use LPS array to find the next match
+        }
+
+        else if (textIndex < text.size() && pattern[patternIndex] != text[textIndex]) {
+            // Use LPS array to skip characters in pattern
+            if (patternIndex != 0) patternIndex = lps[patternIndex - 1];
+
+            // No match, move to next character in text
+            else textIndex++;
+        }
+    }
+
+    return matchStartIndices;
 }
