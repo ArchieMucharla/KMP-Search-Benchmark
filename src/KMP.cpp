@@ -1,4 +1,6 @@
 #include "KMP.h"
+#include <string>
+#include <vector>
 
 void preprocess_pattern(const std::string& pattern, std::vector<int>& lps) {
 
