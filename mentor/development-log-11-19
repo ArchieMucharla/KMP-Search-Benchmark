@@ -1,18 +1,19 @@
 Week of 11/19 to 11/26:
 
-
-
 What goals you had set for the week and whether they were accomplished or not:
 - Implement functional codebase: Accomplished, was able to set up codebase using cmake
-- Start preprocess_pattern():
-- KMP_search():
-- Improve our test cases:
-
+- Start preprocess_pattern(): Accomplished, we just need to add additional test cases for a comprehensive test suite.
+- KMP_search(): Accomplished, we just need to add additional test cases using our other datasets for a comprehensive test suite.
 
 What specific tasks each member of your team accomplished in the week:
-
+- Archie worked on preprocessing function
+- Simone worked on KMP search function
+- Archie added test cases
+- Simone added naive search function and added comparison counter for KMP search
 
 What problems you encountered (if any) that prevented you from meeting your goals:
-
+- We had a hard time setting up the development environment with catch2 and make, but thankfully we were able to get it working.
 
 What you plan to accomplish next week:
+- Improve our test cases: we will add more test cases, especially using different complexities of patterns
+- Begin written report
