@@ -17,3 +17,6 @@ What problems you encountered (if any) that prevented you from meeting your goal
 What you plan to accomplish next week:
 - Improve our test cases: we will add more test cases, especially using different complexities of patterns
 - Begin written report
+
+Questions for mid-week check-in:
+- Can we benchmark Big O with the comparison counter, or should we time our algorithm in another way?
