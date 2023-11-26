@@ -178,10 +178,64 @@ src/CMakeFiles/src.dir/KMP.cpp.o: ../src/KMP.cpp \
   /usr/include/c++/11/debug/safe_sequence.tcc \
   /usr/include/c++/11/debug/safe_container.h \
   /usr/include/c++/11/debug/safe_iterator.h \
-  /usr/include/c++/11/debug/safe_iterator.tcc
+  /usr/include/c++/11/debug/safe_iterator.tcc \
+  /usr/include/c++/11/iostream \
+  /usr/include/c++/11/ostream \
+  /usr/include/c++/11/ios \
+  /usr/include/c++/11/bits/ios_base.h \
+  /usr/include/c++/11/bits/locale_classes.h \
+  /usr/include/c++/11/bits/locale_classes.tcc \
+  /usr/include/c++/11/system_error \
+  /usr/include/aarch64-linux-gnu/c++/11/bits/error_constants.h \
+  /usr/include/c++/11/stdexcept \
+  /usr/include/c++/11/streambuf \
+  /usr/include/c++/11/bits/streambuf.tcc \
+  /usr/include/c++/11/bits/basic_ios.h \
+  /usr/include/c++/11/bits/locale_facets.h \
+  /usr/include/c++/11/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/aarch64-linux-gnu/bits/wctype-wchar.h \
+  /usr/include/aarch64-linux-gnu/c++/11/bits/ctype_base.h \
+  /usr/include/c++/11/bits/streambuf_iterator.h \
+  /usr/include/aarch64-linux-gnu/c++/11/bits/ctype_inline.h \
+  /usr/include/c++/11/bits/locale_facets.tcc \
+  /usr/include/c++/11/bits/basic_ios.tcc \
+  /usr/include/c++/11/bits/ostream.tcc \
+  /usr/include/c++/11/istream \
+  /usr/include/c++/11/bits/istream.tcc
 
+
+/usr/include/c++/11/bits/istream.tcc:
+
+/usr/include/c++/11/istream:
+
+/usr/include/aarch64-linux-gnu/c++/11/bits/ctype_inline.h:
+
+/usr/include/aarch64-linux-gnu/c++/11/bits/ctype_base.h:
+
+/usr/include/wctype.h:
+
+/usr/include/c++/11/cwctype:
+
+/usr/include/c++/11/bits/locale_facets.h:
+
+/usr/include/c++/11/stdexcept:
+
+/usr/include/aarch64-linux-gnu/c++/11/bits/error_constants.h:
+
+/usr/include/c++/11/bits/locale_classes.tcc:
+
+/usr/include/c++/11/bits/locale_classes.h:
+
+/usr/include/c++/11/bits/ios_base.h:
+
+/usr/include/c++/11/ios:
+
+/usr/include/c++/11/ostream:
 
 /usr/include/c++/11/debug/safe_iterator.tcc:
+
+/usr/include/c++/11/bits/basic_ios.h:
 
 /usr/include/c++/11/debug/safe_container.h:
 
@@ -221,9 +275,13 @@ src/CMakeFiles/src.dir/KMP.cpp.o: ../src/KMP.cpp \
 
 /usr/include/aarch64-linux-gnu/bits/stdio_lim.h:
 
+/usr/include/aarch64-linux-gnu/bits/wctype-wchar.h:
+
 /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/c++/11/bits/streambuf.tcc:
 
 /usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h:
 
@@ -268,6 +326,8 @@ src/CMakeFiles/src.dir/KMP.cpp.o: ../src/KMP.cpp \
 /usr/include/stdlib.h:
 
 /usr/include/c++/11/debug/formatter.h:
+
+/usr/include/c++/11/iostream:
 
 /usr/include/aarch64-linux-gnu/bits/floatn.h:
 
@@ -395,6 +455,8 @@ src/CMakeFiles/src.dir/KMP.cpp.o: ../src/KMP.cpp \
 
 /usr/include/c++/11/bits/alloc_traits.h:
 
+/usr/include/c++/11/system_error:
+
 /usr/include/c++/11/bits/stl_vector.h:
 
 /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h:
@@ -435,11 +497,15 @@ src/CMakeFiles/src.dir/KMP.cpp.o: ../src/KMP.cpp \
 
 /usr/include/aarch64-linux-gnu/bits/time64.h:
 
+/usr/include/c++/11/streambuf:
+
 /usr/include/aarch64-linux-gnu/bits/stdlib-float.h:
 
 /usr/include/c++/11/bits/functexcept.h:
 
 /usr/include/aarch64-linux-gnu/bits/time.h:
+
+/usr/include/c++/11/bits/locale_facets.tcc:
 
 /usr/include/aarch64-linux-gnu/gnu/stubs.h:
 
@@ -475,6 +541,8 @@ src/CMakeFiles/src.dir/KMP.cpp.o: ../src/KMP.cpp \
 
 /usr/include/aarch64-linux-gnu/c++/11/bits/c++locale.h:
 
+/usr/include/c++/11/bits/streambuf_iterator.h:
+
 /usr/include/aarch64-linux-gnu/bits/types/time_t.h:
 
 /usr/include/aarch64-linux-gnu/asm/errno.h:
@@ -493,6 +561,8 @@ src/CMakeFiles/src.dir/KMP.cpp.o: ../src/KMP.cpp \
 
 /usr/include/aarch64-linux-gnu/bits/types/struct_timespec.h:
 
+/usr/include/c++/11/bits/basic_ios.tcc:
+
 /usr/include/c++/11/debug/functions.h:
 
 /usr/include/aarch64-linux-gnu/bits/cpu-set.h:
@@ -510,6 +580,8 @@ src/CMakeFiles/src.dir/KMP.cpp.o: ../src/KMP.cpp \
 /usr/include/c++/11/bits/allocator.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/clockid_t.h:
+
+/usr/include/c++/11/bits/ostream.tcc:
 
 /usr/include/c++/11/clocale:
 
