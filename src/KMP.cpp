@@ -65,6 +65,7 @@ KMPResult KMP_search(const std::string& text, const std::string& pattern, const 
             if (patternIndex == (int) pattern.size()) {
                 // Add the starting index of the match to the result vector
                 result.matchStartIndices.push_back(textIndex - patternIndex);
+                //std::cout << "matched!" <<std::endl;
 
                 // Update pattern index using the LPS array for the next possible match
                 patternIndex = lps[patternIndex - 1];
@@ -76,6 +77,8 @@ KMPResult KMP_search(const std::string& text, const std::string& pattern, const 
         // Handle mismatch at the start by moving to the next character in text
         else textIndex++;
     }
+
+    //std::cout<< result.totalComparisons <<std::endl;
 
     return result;
 }

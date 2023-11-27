@@ -31,6 +31,34 @@ std::string read_file_content(const std::string& filename) {
     return content;
 }
 
+
+
+//PREPROCESSING FUNCTION TESTS:
+//------------------------------------------------------------------------------------------------------------------------
+
+TEST_CASE("LPS Table - single char", "[weight=5]") {
+    std::string pattern = " ";
+
+    std::vector<int> expectedLPS = {0};
+    std::vector<int> lps(pattern.size(), 0);
+
+    preprocess_pattern(pattern, lps);
+
+    REQUIRE(lps == expectedLPS);
+}
+
+TEST_CASE("LPS Table - Non-repetitive Pattern", "[weight=5]") {
+    std::string pattern = "ABCDEFG";
+
+    std::vector<int> expectedLPS = {0, 0, 0, 0, 0, 0, 0};
+    std::vector<int> lps(pattern.size(), 0);
+
+    preprocess_pattern(pattern, lps);
+
+    REQUIRE(lps == expectedLPS);
+}
+
+
 TEST_CASE("LPS Table - preprocess test", "[weight=5]") {
     std::string pattern = "ABABAC";
 
@@ -42,11 +70,52 @@ TEST_CASE("LPS Table - preprocess test", "[weight=5]") {
     REQUIRE(lps == expectedLPS);
 }
 
-TEST_CASE("Preprocessing and Single Match", "[weight=5]") {
-    std::string text = read_file_content("/workspaces/CS 225/CS_225_EC/data/1_spotify");
-    // std::cout << "text: " << text << std::endl;
+TEST_CASE("LPS Table - preprocess test with repetitive pattern", "[weight=5]") {
+    std::string pattern = "AAABAAA";
 
-    // Use a known pattern from 1_spotify.csv
+    std::vector<int> expectedLPS = {0, 1, 2, 0, 1, 2, 3};
+    std::vector<int> lps(pattern.size(), 0);
+
+    preprocess_pattern(pattern, lps);
+
+    REQUIRE(lps == expectedLPS);
+}
+
+TEST_CASE("LPS Table - Complex Repetitive Pattern", "[weight=5]") {
+    std::string pattern = "AABAACAABAAA";
+
+    std::vector<int> expectedLPS = {0, 1, 0, 1, 2, 0, 1, 2, 3, 4, 5, 2};
+    std::vector<int> lps(pattern.size(), 0);
+
+    preprocess_pattern(pattern, lps);
+
+    REQUIRE(lps == expectedLPS);
+}
+
+/*
+*/
+/*
+*/
+/*
+*/
+/*
+*/
+/*
+*/
+/*
+*/
+//KMP SEARCH TESTS:
+//------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+//SPOTIFY DATASET (SMALLEST)
+//------------------------------------------------------------------------------------------------------------------------
+
+TEST_CASE("Preprocessing and Single Match: Spotify (1)", "[weight=5]") {
+    std::string text = read_file_content("../data/1_spotify");
+
     std::string pattern = "peach";
     std::vector<int> lps(pattern.size(), 0);
     
@@ -60,8 +129,6 @@ TEST_CASE("Preprocessing and Single Match", "[weight=5]") {
     std::vector<int> expectedKMPIndices = {53};
     REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
 
-    // Every character must be examined at least once in KMP, 
-    // so totalComparisons has a minimum of text size
     REQUIRE(kmpResult.totalComparisons >= (int) text.size());
 
     // Perform naive search and check result
@@ -74,34 +141,410 @@ TEST_CASE("Preprocessing and Single Match", "[weight=5]") {
 }
 
 
-// TEST_CASE("Preprocessing and Multiple Matches", "[weight=5]") {
-// std::string text = read_file_content("/workspaces/CS 225/CS_225_EC/data/1_spotify");
+TEST_CASE("Preprocessing and Multiple Matches: Spotify (1)", "[weight=5]") {
+    std::string text = read_file_content("../data/1_spotify");
 
-//     // Use a known pattern from 1_spotify.csv
-//     std::string pattern = "love";
-//     std::vector<int> lps(pattern.size(), 0);
+    std::string pattern = "love";
+    std::vector<int> lps(pattern.size(), 0);
     
-//     preprocess_pattern(pattern, lps);
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = {0, 0, 0, 0};
+    REQUIRE(expectedLPS == lps);
 
-//     auto result = KMP_search(text, pattern, lps);
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {124, 137, 570, 1601, 1649, 1742};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
 
-//     // Expected indices where "love" appears in text
-//     std::vector<int> expected = {124, 137, 570, 1601, 1649, 1742};  
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
 
-//     REQUIRE(expected == result);
-// }
+    // Perform naive search and check result
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {124, 137, 570, 1601, 1649, 1742};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
 
-// TEST_CASE("No Matches", "[weight=5]") {
-// std::string text = read_file_content("/workspaces/CS 225/CS_225_EC/data/1_spotify");
+    // The total number of comparisons in KMP should be less than or equal to that in the naive approach
+    REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+}
 
-//     // Use a pattern that doesn't exist in 1_spotify.csv
-//     std::string pattern = "pineapple";
-//     std::vector<int> lps(pattern.size(), 0);
+TEST_CASE("Preprocessing and No Matches: Spotify (1)", "[weight=5]") {
+    std::string text = read_file_content("../data/1_spotify");
+
+    std::string pattern = "nomatch";
+    std::vector<int> lps(pattern.size(), 0);
     
-//     preprocess_pattern(pattern, lps);
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = { 0, 0, 0, 0, 0, 0, 0 };
+    REQUIRE(expectedLPS == lps);
 
-//     auto result = KMP_search(text, pattern, lps);
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {}; 
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
 
-//     // No match, so the result should be empty
-//     REQUIRE(result.empty());
-// }
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    KMPResult naiveResult = naive_search(text, pattern);
+    REQUIRE(expectedKMPIndices == naiveResult.matchStartIndices);
+
+//    REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+}
+
+
+
+
+
+
+
+
+
+
+//HORROR MOVIE DATASET (2nd)
+//------------------------------------------------------------------------------------------------------------------------
+
+TEST_CASE("Preprocessing and Single Match: Horror Movie (2) --kmp has less comparisons than naive", "[weight=5]") {
+    std::string text = read_file_content("../data/2_horror_movie");
+    // std::cout << "text: " << text << std::endl;
+
+    std::string pattern = "the the";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = {0, 0, 0, 0, 1, 2, 3};
+    REQUIRE(expectedLPS == lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {5661};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    // Perform naive search and check result
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {5661};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+}
+
+TEST_CASE("Preprocessing and Multiple Matches: Horror (2)", "[weight=5]") {
+    std::string text = read_file_content("../data/2_horror_movie");
+
+    std::string pattern = "the th";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = {0, 0, 0, 0, 1, 2};
+    REQUIRE(expectedLPS == lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {5661, 11347};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    // Perform naive search and check result
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {5661, 11347};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+
+    // The total number of comparisons in KMP should be less than or equal to that in the naive approach
+    REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+}
+
+TEST_CASE("Preprocessing and No Matches: horror (2)", "[weight=5]") {
+    std::string text = read_file_content("../data/2_horror_movie");
+
+    std::string pattern = "nomatch";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = { 0, 0, 0, 0, 0, 0, 0 };
+    REQUIRE(expectedLPS == lps);
+
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {}; 
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    KMPResult naiveResult = naive_search(text, pattern);
+    REQUIRE(expectedKMPIndices == naiveResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+}
+
+
+
+
+
+
+
+
+//STARBUCKS DATASET (3rd)
+//------------------------------------------------------------------------------------------------------------------------
+
+TEST_CASE("Preprocessing and Single Match: starb (3)", "[weight=5]") {
+    std::string text = read_file_content("../data/3_starbucks_reviews");
+    // std::cout << "text: " << text << std::endl;
+
+    std::string pattern = "fellowship";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS =  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    REQUIRE(expectedLPS == lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {81285};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    // Perform naive search and check result
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {81285};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+}
+
+TEST_CASE("Preprocessing and Multiple Matches: starb (3)", "[weight=5]") {
+    std::string text = read_file_content("../data/3_starbucks_reviews");
+
+    std::string pattern = "states";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = { 0, 0, 0, 0, 0, 1 };
+    REQUIRE(expectedLPS == lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = { 33241, 125868, 158915, 188447,
+  201765, 221284, 329890, 380403 };
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    // Perform naive search and check result
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = { 33241, 125868, 158915, 188447,
+  201765, 221284, 329890, 380403 };
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+
+    // The total number of comparisons in KMP should be less than or equal to that in the naive approach
+    REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+}
+
+TEST_CASE("Preprocessing and No Matches: starb (3)", "[weight=5]") {
+    std::string text = read_file_content("../data/3_starbucks_reviews");
+
+    std::string pattern = "simoneblubie";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    REQUIRE(expectedLPS == lps);
+
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {}; 
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    KMPResult naiveResult = naive_search(text, pattern);
+    REQUIRE(expectedKMPIndices == naiveResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+}
+
+
+
+
+
+
+
+
+
+//MAKEUP DATASET (4th)
+//------------------------------------------------------------------------------------------------------------------------
+
+TEST_CASE("Preprocessing and Single Match: makeup(4)", "[weight=5]") {
+    std::string text = read_file_content("../data/4_makeup");
+    // std::cout << "text: " << text << std::endl;
+
+    std::string pattern = "the the";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = { 0, 0, 0, 0, 1, 2, 3 };
+    REQUIRE(expectedLPS == lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {474578};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    // Perform naive search and check result
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {474578};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+}
+
+TEST_CASE("Preprocessing and Multiple Matches: makeup(4)", "[weight=5]") {
+    std::string text = read_file_content("../data/4_makeup");
+
+    std::string pattern = "the th";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS ={ 0, 0, 0, 0, 1, 2 };
+    REQUIRE(expectedLPS == lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = { 6061, 7136, 7828, 35324, 45004, 191583, 193043, 474578, 569089 };
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    // Perform naive search and check result
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = { 6061, 7136, 7828, 35324, 45004, 191583, 193043, 474578, 569089 };
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+
+    // The total number of comparisons in KMP should be less than or equal to that in the naive approach
+    REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+}
+
+TEST_CASE("Preprocessing and No Matches: makeup (4)", "[weight=5]") {
+    std::string text = read_file_content("../data/4_makeup");
+
+    std::string pattern = "archiedacoder";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = { 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 };
+    REQUIRE(expectedLPS == lps);
+
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {}; 
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    KMPResult naiveResult = naive_search(text, pattern);
+    REQUIRE(expectedKMPIndices == naiveResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//AMAZON DATASET (Largest)
+//------------------------------------------------------------------------------------------------------------------------
+
+TEST_CASE("Preprocessing and Single Match: amazon  (5) --kmp has less comparisons than naive", "[weight=5]") {
+    std::string text = read_file_content("../data/5_amazon");
+    // std::cout << "text: " << text << std::endl;
+
+    std::string pattern = "enclosue";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = { 0, 0, 0, 0, 0, 0, 0, 1 };
+    REQUIRE(expectedLPS == lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {8020};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    // Perform naive search and check result
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {8020};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+}
+
+TEST_CASE("Preprocessing and Multiple Matches: 5_amazon", "[weight=5]") {
+    std::string text = read_file_content("../data/5_amazon");
+
+    std::string pattern = "el el";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS = { 0, 0, 0, 1, 2 };
+    REQUIRE(expectedLPS == lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices =  { 287628, 288957, 470098, 636659, 735764, 829619, 901779, 963868,1163701 };
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    // Perform naive search and check result
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = { 287628, 288957, 470098, 636659, 735764, 829619, 901779, 963868,1163701 };
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+
+    // The total number of comparisons in KMP should be less than or equal to that in the naive approach
+    REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+}
+
+TEST_CASE("Preprocessing and No Matches: 5_amazon", "[weight=5]") {
+    std::string text = read_file_content("../data/5_amazon");
+
+    std::string pattern = "yooooooooooo";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    preprocess_pattern(pattern, lps);
+    std::vector<int> expectedLPS =  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    REQUIRE(expectedLPS == lps);
+
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {}; 
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons >= (int) text.size());
+
+    KMPResult naiveResult = naive_search(text, pattern);
+    REQUIRE(expectedKMPIndices == naiveResult.matchStartIndices);
+
+    REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+}
+
+
+
+
+
