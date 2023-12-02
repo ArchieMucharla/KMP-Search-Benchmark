@@ -36,7 +36,7 @@ std::string read_file_content(const std::string& filename) {
 //PREPROCESSING FUNCTION TESTS:
 //------------------------------------------------------------------------------------------------------------------------
 
-TEST_CASE("LPS Table - single char", "[weight=5]") {
+TEST_CASE("LPS Table - single char", "[0]") {
     std::string pattern = " ";
 
     std::vector<int> expectedLPS = {0};
@@ -47,7 +47,7 @@ TEST_CASE("LPS Table - single char", "[weight=5]") {
     REQUIRE(lps == expectedLPS);
 }
 
-TEST_CASE("LPS Table - Non-repetitive Pattern", "[weight=5]") {
+TEST_CASE("LPS Table - Non-repetitive Pattern", "[0-1]") {
     std::string pattern = "ABCDEFG";
 
     std::vector<int> expectedLPS = {0, 0, 0, 0, 0, 0, 0};
@@ -59,7 +59,7 @@ TEST_CASE("LPS Table - Non-repetitive Pattern", "[weight=5]") {
 }
 
 
-TEST_CASE("LPS Table - preprocess test", "[weight=5]") {
+TEST_CASE("LPS Table - preprocess test", "[0-2]") {
     std::string pattern = "ABABAC";
 
     std::vector<int> expectedLPS = {0, 0, 1, 2, 3, 0};
@@ -70,7 +70,7 @@ TEST_CASE("LPS Table - preprocess test", "[weight=5]") {
     REQUIRE(lps == expectedLPS);
 }
 
-TEST_CASE("LPS Table - preprocess test with repetitive pattern", "[weight=5]") {
+TEST_CASE("LPS Table - preprocess test with repetitive pattern", "[0-3]") {
     std::string pattern = "AAABAAA";
 
     std::vector<int> expectedLPS = {0, 1, 2, 0, 1, 2, 3};
@@ -81,7 +81,7 @@ TEST_CASE("LPS Table - preprocess test with repetitive pattern", "[weight=5]") {
     REQUIRE(lps == expectedLPS);
 }
 
-TEST_CASE("LPS Table - Complex Repetitive Pattern", "[weight=5]") {
+TEST_CASE("LPS Table - Complex Repetitive Pattern", "[0-4]") {
     std::string pattern = "AABAACAABAAA";
 
     std::vector<int> expectedLPS = {0, 1, 0, 1, 2, 0, 1, 2, 3, 4, 5, 2};
@@ -113,7 +113,7 @@ TEST_CASE("LPS Table - Complex Repetitive Pattern", "[weight=5]") {
 //SPOTIFY DATASET (SMALLEST)
 //------------------------------------------------------------------------------------------------------------------------
 
-TEST_CASE("Preprocessing and Single Match: Spotify (1)", "[weight=5]") {
+TEST_CASE("Preprocessing and Single Match: Spotify (1)", "[1]") {
     std::string text = read_file_content("../data/1_spotify");
 
     std::string pattern = "peach";
@@ -141,7 +141,7 @@ TEST_CASE("Preprocessing and Single Match: Spotify (1)", "[weight=5]") {
 }
 
 
-TEST_CASE("Preprocessing and Multiple Matches: Spotify (1)", "[weight=5]") {
+TEST_CASE("Preprocessing and Multiple Matches: Spotify (1)", "[1-1]") {
     std::string text = read_file_content("../data/1_spotify");
 
     std::string pattern = "love";
@@ -168,7 +168,7 @@ TEST_CASE("Preprocessing and Multiple Matches: Spotify (1)", "[weight=5]") {
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
 }
 
-TEST_CASE("Preprocessing and No Matches: Spotify (1)", "[weight=5]") {
+TEST_CASE("Preprocessing and No Matches: Spotify (1)", "[1-2]") {
     std::string text = read_file_content("../data/1_spotify");
 
     std::string pattern = "nomatch";
@@ -202,7 +202,7 @@ TEST_CASE("Preprocessing and No Matches: Spotify (1)", "[weight=5]") {
 //HORROR MOVIE DATASET (2nd)
 //------------------------------------------------------------------------------------------------------------------------
 
-TEST_CASE("Preprocessing and Single Match: Horror Movie (2) --kmp has less comparisons than naive", "[weight=5]") {
+TEST_CASE("Preprocessing and Single Match: Horror Movie (2) --kmp has less comparisons than naive", "[2]") {
     std::string text = read_file_content("../data/2_horror_movie");
     // std::cout << "text: " << text << std::endl;
 
@@ -229,7 +229,7 @@ TEST_CASE("Preprocessing and Single Match: Horror Movie (2) --kmp has less compa
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
 }
 
-TEST_CASE("Preprocessing and Multiple Matches: Horror (2)", "[weight=5]") {
+TEST_CASE("Preprocessing and Multiple Matches: Horror (2)", "[2-1]") {
     std::string text = read_file_content("../data/2_horror_movie");
 
     std::string pattern = "the th";
@@ -256,7 +256,7 @@ TEST_CASE("Preprocessing and Multiple Matches: Horror (2)", "[weight=5]") {
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
 }
 
-TEST_CASE("Preprocessing and No Matches: horror (2)", "[weight=5]") {
+TEST_CASE("Preprocessing and No Matches: horror (2)", "[2-2]") {
     std::string text = read_file_content("../data/2_horror_movie");
 
     std::string pattern = "nomatch";
@@ -288,7 +288,7 @@ TEST_CASE("Preprocessing and No Matches: horror (2)", "[weight=5]") {
 //STARBUCKS DATASET (3rd)
 //------------------------------------------------------------------------------------------------------------------------
 
-TEST_CASE("Preprocessing and Single Match: starb (3)", "[weight=5]") {
+TEST_CASE("Preprocessing and Single Match: starb (3)", "[3]") {
     std::string text = read_file_content("../data/3_starbucks_reviews");
     // std::cout << "text: " << text << std::endl;
 
@@ -315,7 +315,7 @@ TEST_CASE("Preprocessing and Single Match: starb (3)", "[weight=5]") {
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
 }
 
-TEST_CASE("Preprocessing and Multiple Matches: starb (3)", "[weight=5]") {
+TEST_CASE("Preprocessing and Multiple Matches: starb (3)", "[3-1]") {
     std::string text = read_file_content("../data/3_starbucks_reviews");
 
     std::string pattern = "states";
@@ -344,7 +344,7 @@ TEST_CASE("Preprocessing and Multiple Matches: starb (3)", "[weight=5]") {
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
 }
 
-TEST_CASE("Preprocessing and No Matches: starb (3)", "[weight=5]") {
+TEST_CASE("Preprocessing and No Matches: starb (3)", "[3-2]") {
     std::string text = read_file_content("../data/3_starbucks_reviews");
 
     std::string pattern = "simoneblubie";
@@ -377,7 +377,7 @@ TEST_CASE("Preprocessing and No Matches: starb (3)", "[weight=5]") {
 //MAKEUP DATASET (4th)
 //------------------------------------------------------------------------------------------------------------------------
 
-TEST_CASE("Preprocessing and Single Match: makeup(4)", "[weight=5]") {
+TEST_CASE("Preprocessing and Single Match: makeup(4)", "[4]") {
     std::string text = read_file_content("../data/4_makeup");
     // std::cout << "text: " << text << std::endl;
 
@@ -404,7 +404,7 @@ TEST_CASE("Preprocessing and Single Match: makeup(4)", "[weight=5]") {
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
 }
 
-TEST_CASE("Preprocessing and Multiple Matches: makeup(4)", "[weight=5]") {
+TEST_CASE("Preprocessing and Multiple Matches: makeup(4)", "[4-1]") {
     std::string text = read_file_content("../data/4_makeup");
 
     std::string pattern = "the th";
@@ -431,7 +431,7 @@ TEST_CASE("Preprocessing and Multiple Matches: makeup(4)", "[weight=5]") {
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
 }
 
-TEST_CASE("Preprocessing and No Matches: makeup (4)", "[weight=5]") {
+TEST_CASE("Preprocessing and No Matches: makeup (4)", "[4-2]") {
     std::string text = read_file_content("../data/4_makeup");
 
     std::string pattern = "archiedacoder";
@@ -468,7 +468,7 @@ TEST_CASE("Preprocessing and No Matches: makeup (4)", "[weight=5]") {
 //AMAZON DATASET (Largest)
 //------------------------------------------------------------------------------------------------------------------------
 
-TEST_CASE("Preprocessing and Single Match: amazon  (5) --kmp has less comparisons than naive", "[weight=5]") {
+TEST_CASE("Preprocessing and Single Match: amazon  (5) --kmp has less comparisons than naive", "[5]") {
     std::string text = read_file_content("../data/5_amazon");
     // std::cout << "text: " << text << std::endl;
 
@@ -495,7 +495,7 @@ TEST_CASE("Preprocessing and Single Match: amazon  (5) --kmp has less comparison
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
 }
 
-TEST_CASE("Preprocessing and Multiple Matches: 5_amazon", "[weight=5]") {
+TEST_CASE("Preprocessing and Multiple Matches: 5_amazon", "[5-1]") {
     std::string text = read_file_content("../data/5_amazon");
 
     std::string pattern = "el el";
@@ -522,7 +522,7 @@ TEST_CASE("Preprocessing and Multiple Matches: 5_amazon", "[weight=5]") {
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
 }
 
-TEST_CASE("Preprocessing and No Matches: 5_amazon", "[weight=5]") {
+TEST_CASE("Preprocessing and No Matches: 5_amazon", "[5-2]") {
     std::string text = read_file_content("../data/5_amazon");
 
     std::string pattern = "yooooooooooo";
