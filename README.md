@@ -62,8 +62,8 @@ Our tests can be found in `/tests`. We have separated our tests into two overall
                 * Perform Naive Search and check result accuracy
         
                 * Compare KMP Search runtime with Naive Search runtime
-      
-      * Repeat for other datasets...
+
+* Repeat for other datasets...
   
 
 # Data 
