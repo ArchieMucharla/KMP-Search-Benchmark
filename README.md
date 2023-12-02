@@ -2,7 +2,23 @@
 Our proposed project is to implement the Knuth-Morris-Pratt (KMP) Algorithm for finding occurrences of a string pattern within a larger string.
 
 # Code
-If our project is approved, we will create a `code/ ` folder and provide all of our implemented files in there. We will also provide details on how to run the code.
+
+/build -- should we delete the build folder and have anyone who uses this algo just mkdir and stuff to make a new build folder?
+
+/data -- 
+
+/documents -- 
+
+/entry -- 
+
+/mentor -- 
+
+/src -- 
+
+/tests -- 
+
+Misc. files: .devcontainer, .vscode, .gitignore, CMakeLists.txt, Dockerfile, assignment.cmake
+
 
 # Data 
 The test data contains data from Kaggle.com. These are their original links:
