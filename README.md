@@ -44,24 +44,25 @@ Our tests can be found in `/tests`. We have separated our tests into two overall
     
             * Compare KMP Search runtime with Naive Search runtime
       
-      * Multiple matches
+    * Multiple matches
         
-          * Perform preprocessing and check LPS accuracy
-          
-          * Perform KMP Search and check result accuracy
+        * Perform preprocessing and check LPS accuracy
+        
+        * Perform KMP Search and check result accuracy
     
-          * Perform Naive Search and check result accuracy
+        * Perform Naive Search and check result accuracy
     
-          * Compare KMP Search runtime with Naive Search runtime
+        * Compare KMP Search runtime with Naive Search runtime
       
-          * No matches
-                * Perform preprocessing and check LPS accuracy
-          
-                * Perform KMP Search and check result accuracy
-        
-                * Perform Naive Search and check result accuracy
-        
-                * Compare KMP Search runtime with Naive Search runtime
+    * No matches
+      
+        * Perform preprocessing and check LPS accuracy
+    
+        * Perform KMP Search and check result accuracy
+    
+        * Perform Naive Search and check result accuracy
+    
+        * Compare KMP Search runtime with Naive Search runtime
 
 * Repeat for other datasets...
   
