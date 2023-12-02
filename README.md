@@ -84,7 +84,7 @@ Makeup Products: https://www.kaggle.com/datasets/shivd24coder/cosmetic-brand-pro
 
 # Written Report
 
-Our written report can be found in the `documents/` directory in `report.md`.
+Our written report can be found in the `documents/` directory in `final_report.pdf`.
 
 
 # Presentation
