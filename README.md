@@ -26,7 +26,7 @@ sssss
 
   KMP Search Tests
 
-   Markup : * Bullet list
+    `Markup : * Bullet list
               * Nested bullet
                   * Sub-nested bullet etc
           * Bullet list item 2
@@ -36,7 +36,7 @@ sssss
  Markup : - Bullet list
               - Nested bullet
                   - Sub-nested bullet etc
-          - Bullet list item 2 
+          - Bullet list item 2 `
   
 
 
