@@ -154,11 +154,6 @@ sys     0m0.021s
 
 TEST_CASE("Preprocessing and Single Match: Spotify (1)", "[1]") {
 
-/*
-real    0m0.028s
-user    0m0.006s
-sys     0m0.021s
-*/
 
     std::string text = read_file_content("../data/1_spotify");
 
@@ -170,6 +165,8 @@ sys     0m0.021s
     std::vector<int> expectedLPS = {0, 0, 0, 0, 0};
     REQUIRE(expectedLPS == lps);
 
+
+
     // Perform KMP search and check result
     KMPResult kmpResult = KMP_search(text, pattern, lps);
     std::vector<int> expectedKMPIndices = {53};
@@ -177,23 +174,41 @@ sys     0m0.021s
 
     REQUIRE(kmpResult.totalComparisons >= (int) text.size());
 
+
     // Perform naive search and check result
     KMPResult naiveResult = naive_search(text, pattern);
     std::vector<int> expectedNaiveIndices = {53};
     REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
 
     // The total number of comparisons in KMP should be less than or equal to that in the naive approach
-    REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+  REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+
+
+
+    
+/*
+Times:
+
+real    0m0.032s
+user    0m0.010s
+sys     0m0.020s
+
+KMP:
+real    0m0.027s
+user    0m0.006s
+sys     0m0.019s
+
+Naive:
+real    0m0.038s
+user    0m0.005s
+sys     0m0.030s
+
+*/
 }
 
 
 TEST_CASE("Preprocessing and Multiple Matches: Spotify (1)", "[1-1]") {
 
-/*
-real    0m0.037s
-user    0m0.012s
-sys     0m0.025s
-*/
     std::string text = read_file_content("../data/1_spotify");
 
     std::string pattern = "love";
@@ -211,22 +226,39 @@ sys     0m0.025s
 
     REQUIRE(kmpResult.totalComparisons >= (int) text.size());
 
+   
+    
+    
+
     // Perform naive search and check result
     KMPResult naiveResult = naive_search(text, pattern);
     std::vector<int> expectedNaiveIndices = {124, 137, 570, 1601, 1649, 1742};
     REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
-
+ /*
     // The total number of comparisons in KMP should be less than or equal to that in the naive approach
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+
+
+Times:
+
+real    0m0.037s
+user    0m0.012s
+sys     0m0.025s
+
+KMP:
+real    0m0.037s
+user    0m0.006s
+sys     0m0.023s
+
+Naive:
+
+
+*/
+
 }
 
 TEST_CASE("Preprocessing and No Matches: Spotify (1)", "[1-2]") {
 
-/*
-real    0m0.037s
-user    0m0.008s
-sys     0m0.027s
-*/
 
     std::string text = read_file_content("../data/1_spotify");
 
@@ -245,8 +277,24 @@ sys     0m0.027s
 
     KMPResult naiveResult = naive_search(text, pattern);
     REQUIRE(expectedKMPIndices == naiveResult.matchStartIndices);
-
+/*
 //    REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+
+
+Times:
+real    0m0.037s
+user    0m0.008s
+sys     0m0.027s
+
+KMP:
+real    0m0.034s
+user    0m0.009s
+sys     0m0.022s
+
+Naive:
+
+
+*/
 }
 
 
@@ -263,11 +311,6 @@ sys     0m0.027s
 
 TEST_CASE("Preprocessing and Single Match: Horror Movie (2) --kmp has less comparisons than naive", "[2]") {
 
-/*
-real    0m0.044s
-user    0m0.012s
-sys     0m0.021s
-*/
 
     std::string text = read_file_content("../data/2_horror_movie");
     // std::cout << "text: " << text << std::endl;
@@ -291,17 +334,29 @@ sys     0m0.021s
     KMPResult naiveResult = naive_search(text, pattern);
     std::vector<int> expectedNaiveIndices = {5661};
     REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
-
+ /*
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+
+   
+Times:
+real    0m0.044s
+user    0m0.012s
+sys     0m0.021s
+
+
+KMP:
+real    0m0.036s
+user    0m0.008s
+sys     0m0.026s
+
+Naive:
+
+
+*/
 }
 
 TEST_CASE("Preprocessing and Multiple Matches: Horror (2)", "[2-1]") {
 
-/*
-real    0m0.040s
-user    0m0.008s
-sys     0m0.030s
-*/
 
     std::string text = read_file_content("../data/2_horror_movie");
 
@@ -324,18 +379,30 @@ sys     0m0.030s
     KMPResult naiveResult = naive_search(text, pattern);
     std::vector<int> expectedNaiveIndices = {5661, 11347};
     REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
-
+/*
     // The total number of comparisons in KMP should be less than or equal to that in the naive approach
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+
+    
+Times:
+real    0m0.040s
+user    0m0.008s
+sys     0m0.030s
+
+KMP:
+real    0m0.034s
+user    0m0.009s
+sys     0m0.023s
+
+Naive:
+
+
+*/
 }
 
 TEST_CASE("Preprocessing and No Matches: horror (2)", "[2-2]") {
 
-/*
-real    0m0.038s
-user    0m0.008s
-sys     0m0.028s
-*/
+
     std::string text = read_file_content("../data/2_horror_movie");
 
     std::string pattern = "nomatch";
@@ -353,8 +420,24 @@ sys     0m0.028s
 
     KMPResult naiveResult = naive_search(text, pattern);
     REQUIRE(expectedKMPIndices == naiveResult.matchStartIndices);
-
+/*
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+
+    
+Times:
+real    0m0.038s
+user    0m0.008s
+sys     0m0.028s
+
+KMP:
+real    0m0.034s
+user    0m0.012s
+sys     0m0.020s
+
+Naive:
+
+
+*/
 }
 
 
@@ -368,12 +451,6 @@ sys     0m0.028s
 //------------------------------------------------------------------------------------------------------------------------
 
 TEST_CASE("Preprocessing and Single Match: starb (3)", "[3]") {
-
-/*
-real    0m0.055s
-user    0m0.026s
-sys     0m0.029s
-*/
 
     std::string text = read_file_content("../data/3_starbucks_reviews");
     // std::cout << "text: " << text << std::endl;
@@ -397,17 +474,28 @@ sys     0m0.029s
     KMPResult naiveResult = naive_search(text, pattern);
     std::vector<int> expectedNaiveIndices = {81285};
     REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
-
+/*
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+
+    
+Times:
+real    0m0.055s
+user    0m0.026s
+sys     0m0.029s
+
+KMP:
+real    0m0.034s
+user    0m0.012s
+sys     0m0.020s
+
+Naive:
+
+
+*/
 }
 
 TEST_CASE("Preprocessing and Multiple Matches: starb (3)", "[3-1]") {
 
-/*
-real    0m0.060s
-user    0m0.032s
-sys     0m0.025s
-*/
 
     std::string text = read_file_content("../data/3_starbucks_reviews");
 
@@ -432,18 +520,29 @@ sys     0m0.025s
     std::vector<int> expectedNaiveIndices = { 33241, 125868, 158915, 188447,
   201765, 221284, 329890, 380403 };
     REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
-
+/*
     // The total number of comparisons in KMP should be less than or equal to that in the naive approach
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+
+    
+Times:
+real    0m0.060s
+user    0m0.032s
+sys     0m0.025s
+
+KMP:
+real    0m0.049s
+user    0m0.019s
+sys     0m0.026s
+
+Naive:
+
+
+*/
 }
 
 TEST_CASE("Preprocessing and No Matches: starb (3)", "[3-2]") {
 
- /*
-real    0m0.058s
-user    0m0.036s
-sys     0m0.021s
-*/
 
     std::string text = read_file_content("../data/3_starbucks_reviews");
 
@@ -459,11 +558,29 @@ sys     0m0.021s
     REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
 
     REQUIRE(kmpResult.totalComparisons >= (int) text.size());
-
+ 
     KMPResult naiveResult = naive_search(text, pattern);
     REQUIRE(expectedKMPIndices == naiveResult.matchStartIndices);
-
+/*
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+
+
+
+   
+Times:
+real    0m0.058s
+user    0m0.036s
+sys     0m0.021s
+
+KMP:
+real    0m0.050s
+user    0m0.023s
+sys     0m0.026s
+
+Naive:
+
+
+*/
 }
 
 
@@ -478,12 +595,6 @@ sys     0m0.021s
 //------------------------------------------------------------------------------------------------------------------------
 
 TEST_CASE("Preprocessing and Single Match: makeup(4)", "[4]") {
-
-/*
-real    0m0.081s
-user    0m0.050s
-sys     0m0.029s
-*/
 
     std::string text = read_file_content("../data/4_makeup");
     // std::cout << "text: " << text << std::endl;
@@ -507,17 +618,28 @@ sys     0m0.029s
     KMPResult naiveResult = naive_search(text, pattern);
     std::vector<int> expectedNaiveIndices = {474578};
     REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
-
+ /*
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+
+
+   
+Times:
+real    0m0.081s
+user    0m0.050s
+sys     0m0.029s
+
+KMP:
+real    0m0.068s
+user    0m0.035s
+sys     0m0.027s
+
+Naive:
+
+
+*/
 }
 
 TEST_CASE("Preprocessing and Multiple Matches: makeup(4)", "[4-1]") {
-
-/*
-real    0m0.077s
-user    0m0.046s
-sys     0m0.026s
-*/
 
     std::string text = read_file_content("../data/4_makeup");
 
@@ -540,18 +662,31 @@ sys     0m0.026s
     KMPResult naiveResult = naive_search(text, pattern);
     std::vector<int> expectedNaiveIndices = { 6061, 7136, 7828, 35324, 45004, 191583, 193043, 474578, 569089 };
     REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
-
+ /*
     // The total number of comparisons in KMP should be less than or equal to that in the naive approach
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+
+
+
+   
+Times:
+real    0m0.077s
+user    0m0.046s
+sys     0m0.026s
+
+KMP:
+real    0m0.074s
+user    0m0.042s
+sys     0m0.028s
+
+Naive:
+
+
+*/
 }
 
 TEST_CASE("Preprocessing and No Matches: makeup (4)", "[4-2]") {
 
-/*
-real    0m0.072s
-user    0m0.045s
-sys     0m0.025s
-*/
 
     std::string text = read_file_content("../data/4_makeup");
 
@@ -570,8 +705,25 @@ sys     0m0.025s
 
     KMPResult naiveResult = naive_search(text, pattern);
     REQUIRE(expectedKMPIndices == naiveResult.matchStartIndices);
-
+ /*
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+
+
+   
+Times:
+real    0m0.072s
+user    0m0.045s
+sys     0m0.025s
+
+KMP:
+real    0m0.060s
+user    0m0.031s
+sys     0m0.027s
+
+Naive:
+
+
+*/
 }
 
 
@@ -591,11 +743,6 @@ sys     0m0.025s
 
 TEST_CASE("Preprocessing and Single Match: amazon  (5) --kmp has less comparisons than naive", "[5]") {
 
-/*
-real    0m0.097s
-user    0m0.066s
-sys     0m0.029s
-*/
     std::string text = read_file_content("../data/5_amazon");
     // std::cout << "text: " << text << std::endl;
 
@@ -620,15 +767,26 @@ sys     0m0.029s
     REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
 
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+
+
+   /* 
+Times:
+real    0m0.097s
+user    0m0.066s
+sys     0m0.029s
+
+KMP:
+real    0m0.078s
+user    0m0.058s
+sys     0m0.019s
+
+Naive:
+
+
+*/
 }
 
 TEST_CASE("Preprocessing and Multiple Matches: 5_amazon", "[5-1]") {
-
-/*
-real    0m0.100s
-user    0m0.062s
-sys     0m0.038s
-*/
 
     std::string text = read_file_content("../data/5_amazon");
 
@@ -654,15 +812,26 @@ sys     0m0.038s
 
     // The total number of comparisons in KMP should be less than or equal to that in the naive approach
     REQUIRE(kmpResult.totalComparisons < naiveResult.totalComparisons);
+
+
+    /*
+Times:
+real    0m0.100s
+user    0m0.062s
+sys     0m0.038s
+
+KMP:
+real    0m0.085s
+user    0m0.048s
+sys     0m0.029s
+
+Naive:
+
+
+*/
 }
 
 TEST_CASE("Preprocessing and No Matches: 5_amazon", "[5-2]") {
-
-/*
-real    0m0.101s
-user    0m0.062s
-sys     0m0.032s
-*/
 
     std::string text = read_file_content("../data/5_amazon");
 
@@ -683,6 +852,23 @@ sys     0m0.032s
     REQUIRE(expectedKMPIndices == naiveResult.matchStartIndices);
 
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+
+
+     /*
+Times:
+real    0m0.101s
+user    0m0.062s
+sys     0m0.032s
+
+KMP:
+real    0m0.076s
+user    0m0.049s
+sys     0m0.025s
+
+Naive:
+
+
+*/
 }
 
 
