@@ -6,7 +6,7 @@ CAN WE DELETE ENTRY TOO??????
 
 # Code
 
-All of our code can be found in `/src`. We defined our functions in `KMP.h` and our source code in `KMP.cpp`.
+All of our code can be found in the `src/` direcotry. We defined our functions in `KMP.h` and our source code in `KMP.cpp`.
 
 # Running Instructions
 
@@ -18,7 +18,7 @@ All of our code can be found in `/src`. We defined our functions in `KMP.h` and 
 
 # Tests
 
-Our tests can be found in `/tests`. We have separated our tests into two overall sections:
+Our tests can be found in the `tests/` directory. We have separated our tests into two overall sections:
 
 * Preprocessing Function Tests
   
@@ -69,7 +69,7 @@ Our tests can be found in `/tests`. We have separated our tests into two overall
 
 # Data 
 
-The test data can be found in `/data`. All data was sourced from Kaggle.com. These are their original links:
+The test data can be found in the `data/` directory. All data was sourced from Kaggle.com. These are their original links:
 
 Spotify songs: https://www.kaggle.com/datasets/sujaykapadnis/spotify-songs
 
@@ -84,21 +84,18 @@ Makeup Products: https://www.kaggle.com/datasets/shivd24coder/cosmetic-brand-pro
 
 # Written Report
 
-Our written report can be found in `/documents/report`. 
+Our written report can be found in the `documents/` directory in `report.md`.
 
 
 # Presentation
 
-Our video presentation can be found in `/documents/presentation`. 
+Our video presentation can be found in the `documents/` directory in `presentation`. FINIHSH THISIIIIIIII UPDATE IT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 # Development Logs
 
-Our development logs can be found in `/mentor`.
+Our development logs can be found in the `mentor/` directory. Feedback from project mentors can be found in `feedback.md`.
 
 
 # Project Proposal
-The proposal can be found in the `documents/` directory.
-
-# Feedback
-All future feedback from our project mentor can be found in the `feedback/` directory.
+The proposal can be found in the `documents/` directory in `proposal.md`.
