@@ -6,16 +6,24 @@ CAN WE DELETE ENTRY TOO??????
 
 # Code
 
-All of our code can be found in `/src`.
+All of our code can be found in `/src`. We defined our functions in `KMP.h` and our source code in `KMP.cpp`.
 
 # Running Instructions
 
-Running Instructions – You should provide full instructions on how to build and run your executable, including how to define the input data and output location for each method. You should also have instructions on how to build and run your test suite. It is in your best interest to make the instructions (and the running of your executables and tests) as simple and straightforward as possible.
+1. Start the CS 225 Docker container.
+2. Open our project in the CS 225 Docker container.
+3. To create the executable, run `mkdir build` followed by `cd build` and `cmake ..`
+4. Run the test cases with `./test`
 
 
 # Tests
 
-Our tests can be found in `/tests`.
+Our tests can be found in `/tests`. We have separated our tests into two overall sections:
+  Preprocessing Function Tests
+    a
+
+  KMP Search Tests
+  
 
 
 # Data 
