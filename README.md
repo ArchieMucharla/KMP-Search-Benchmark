@@ -21,22 +21,13 @@ All of our code can be found in `/src`. We defined our functions in `KMP.h` and 
 Our tests can be found in `/tests`. We have separated our tests into two overall sections:
 
 Preprocessing Function Tests
-&nbsp;
-sssss
 
   KMP Search Tests
 
-    `Markup : * Bullet list
-              * Nested bullet
-                  * Sub-nested bullet etc
-          * Bullet list item 2
-
--OR-
-
- Markup : - Bullet list
-              - Nested bullet
-                  - Sub-nested bullet etc
-          - Bullet list item 2 `
+* Bullet list
+      * Nested bullet
+          * Sub-nested bullet etc
+  * Bullet list item 
   
 
 
