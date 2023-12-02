@@ -21,7 +21,9 @@ All of our code can be found in `/src`. We defined our functions in `KMP.h` and 
 Our tests can be found in `/tests`. We have separated our tests into two overall sections:
 
 * Preprocessing Function Tests
+  
       * LPS table with single char
+  
       * LPS table with non-repetitive pattern
       * LPS table with a repetitive pattern
       * LPS table with a complex repetitive pattern
