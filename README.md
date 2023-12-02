@@ -71,7 +71,7 @@ Our tests can be found in the `tests/` directory. We have separated our tests in
 
 The test data can be found in the `data/` directory. The code we used for data cleaning is called `data_cleaning.ipymb`. All data was sourced from Kaggle.com; these are their original links:
 
-* [Spotify songs]([url](https://www.kaggle.com/datasets/sujaykapadnis/spotify-songs))
+* Spotify songs: https://www.kaggle.com/datasets/sujaykapadnis/spotify-songs
 
 * Amazon UK Products: https://www.kaggle.com/datasets/asaniczka/amazon-uk-products-dataset-2023
 
