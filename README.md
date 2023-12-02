@@ -22,13 +22,13 @@ Our tests can be found in `/tests`. We have separated our tests into two overall
 
 * Preprocessing Function Tests
   
-      * LPS table with single char
-  
-      * LPS table with non-repetitive pattern
-  
-      * LPS table with a repetitive pattern
-  
-      * LPS table with a complex repetitive pattern
+    * LPS table with single char
+    
+    * LPS table with non-repetitive pattern
+    
+    * LPS table with a repetitive pattern
+    
+    * LPS table with a complex repetitive pattern
   
 * KMP Search Tests
   
@@ -45,18 +45,25 @@ Our tests can be found in `/tests`. We have separated our tests into two overall
             * Compare KMP Search runtime with Naive Search runtime
       
       * Multiple matches
-                  * Perform preprocessing and check LPS accuracy
-                  * Perform KMP Search and check result accuracy
-                  * Perform Naive Search and check result accuracy
-                  * Compare KMP Search runtime with Naive Search runtime
+        
+          * Perform preprocessing and check LPS accuracy
+          
+          * Perform KMP Search and check result accuracy
+    
+          * Perform Naive Search and check result accuracy
+    
+          * Compare KMP Search runtime with Naive Search runtime
       
           * No matches
-                  * Perform preprocessing and check LPS accuracy
-                  * Perform KMP Search and check result accuracy
-                  * Perform Naive Search and check result accuracy
-                  * Compare KMP Search runtime with Naive Search runtime
+                * Perform preprocessing and check LPS accuracy
+          
+                * Perform KMP Search and check result accuracy
+        
+                * Perform Naive Search and check result accuracy
+        
+                * Compare KMP Search runtime with Naive Search runtime
       
-    * Repeat for other datasets...
+      * Repeat for other datasets...
   
 
 # Data 
