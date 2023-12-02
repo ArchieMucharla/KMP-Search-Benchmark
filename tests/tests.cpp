@@ -37,6 +37,14 @@ std::string read_file_content(const std::string& filename) {
 //------------------------------------------------------------------------------------------------------------------------
 
 TEST_CASE("LPS Table - single char", "[0]") {
+
+/*
+real    0m0.034s
+user    0m0.010s
+sys     0m0.020s
+*/
+
+
     std::string pattern = " ";
 
     std::vector<int> expectedLPS = {0};
@@ -48,6 +56,14 @@ TEST_CASE("LPS Table - single char", "[0]") {
 }
 
 TEST_CASE("LPS Table - Non-repetitive Pattern", "[0-1]") {
+
+/*
+real    0m0.040s
+user    0m0.009s
+sys     0m0.029s
+*/
+
+
     std::string pattern = "ABCDEFG";
 
     std::vector<int> expectedLPS = {0, 0, 0, 0, 0, 0, 0};
@@ -60,6 +76,13 @@ TEST_CASE("LPS Table - Non-repetitive Pattern", "[0-1]") {
 
 
 TEST_CASE("LPS Table - preprocess test", "[0-2]") {
+
+    /*
+real    0m0.034s
+user    0m0.008s
+sys     0m0.022s
+    */
+
     std::string pattern = "ABABAC";
 
     std::vector<int> expectedLPS = {0, 0, 1, 2, 3, 0};
@@ -71,6 +94,15 @@ TEST_CASE("LPS Table - preprocess test", "[0-2]") {
 }
 
 TEST_CASE("LPS Table - preprocess test with repetitive pattern", "[0-3]") {
+
+/*
+real    0m0.043s
+user    0m0.013s
+sys     0m0.029s
+*/
+
+
+
     std::string pattern = "AAABAAA";
 
     std::vector<int> expectedLPS = {0, 1, 2, 0, 1, 2, 3};
@@ -82,6 +114,13 @@ TEST_CASE("LPS Table - preprocess test with repetitive pattern", "[0-3]") {
 }
 
 TEST_CASE("LPS Table - Complex Repetitive Pattern", "[0-4]") {
+
+
+/*
+real    0m0.026s
+user    0m0.005s
+sys     0m0.021s
+*/
     std::string pattern = "AABAACAABAAA";
 
     std::vector<int> expectedLPS = {0, 1, 0, 1, 2, 0, 1, 2, 3, 4, 5, 2};
@@ -114,6 +153,13 @@ TEST_CASE("LPS Table - Complex Repetitive Pattern", "[0-4]") {
 //------------------------------------------------------------------------------------------------------------------------
 
 TEST_CASE("Preprocessing and Single Match: Spotify (1)", "[1]") {
+
+/*
+real    0m0.028s
+user    0m0.006s
+sys     0m0.021s
+*/
+
     std::string text = read_file_content("../data/1_spotify");
 
     std::string pattern = "peach";
@@ -142,6 +188,12 @@ TEST_CASE("Preprocessing and Single Match: Spotify (1)", "[1]") {
 
 
 TEST_CASE("Preprocessing and Multiple Matches: Spotify (1)", "[1-1]") {
+
+/*
+real    0m0.037s
+user    0m0.012s
+sys     0m0.025s
+*/
     std::string text = read_file_content("../data/1_spotify");
 
     std::string pattern = "love";
@@ -169,6 +221,13 @@ TEST_CASE("Preprocessing and Multiple Matches: Spotify (1)", "[1-1]") {
 }
 
 TEST_CASE("Preprocessing and No Matches: Spotify (1)", "[1-2]") {
+
+/*
+real    0m0.037s
+user    0m0.008s
+sys     0m0.027s
+*/
+
     std::string text = read_file_content("../data/1_spotify");
 
     std::string pattern = "nomatch";
@@ -203,6 +262,13 @@ TEST_CASE("Preprocessing and No Matches: Spotify (1)", "[1-2]") {
 //------------------------------------------------------------------------------------------------------------------------
 
 TEST_CASE("Preprocessing and Single Match: Horror Movie (2) --kmp has less comparisons than naive", "[2]") {
+
+/*
+real    0m0.044s
+user    0m0.012s
+sys     0m0.021s
+*/
+
     std::string text = read_file_content("../data/2_horror_movie");
     // std::cout << "text: " << text << std::endl;
 
@@ -230,6 +296,13 @@ TEST_CASE("Preprocessing and Single Match: Horror Movie (2) --kmp has less compa
 }
 
 TEST_CASE("Preprocessing and Multiple Matches: Horror (2)", "[2-1]") {
+
+/*
+real    0m0.040s
+user    0m0.008s
+sys     0m0.030s
+*/
+
     std::string text = read_file_content("../data/2_horror_movie");
 
     std::string pattern = "the th";
@@ -257,6 +330,12 @@ TEST_CASE("Preprocessing and Multiple Matches: Horror (2)", "[2-1]") {
 }
 
 TEST_CASE("Preprocessing and No Matches: horror (2)", "[2-2]") {
+
+/*
+real    0m0.038s
+user    0m0.008s
+sys     0m0.028s
+*/
     std::string text = read_file_content("../data/2_horror_movie");
 
     std::string pattern = "nomatch";
@@ -289,6 +368,13 @@ TEST_CASE("Preprocessing and No Matches: horror (2)", "[2-2]") {
 //------------------------------------------------------------------------------------------------------------------------
 
 TEST_CASE("Preprocessing and Single Match: starb (3)", "[3]") {
+
+/*
+real    0m0.055s
+user    0m0.026s
+sys     0m0.029s
+*/
+
     std::string text = read_file_content("../data/3_starbucks_reviews");
     // std::cout << "text: " << text << std::endl;
 
@@ -316,6 +402,13 @@ TEST_CASE("Preprocessing and Single Match: starb (3)", "[3]") {
 }
 
 TEST_CASE("Preprocessing and Multiple Matches: starb (3)", "[3-1]") {
+
+/*
+real    0m0.060s
+user    0m0.032s
+sys     0m0.025s
+*/
+
     std::string text = read_file_content("../data/3_starbucks_reviews");
 
     std::string pattern = "states";
@@ -345,6 +438,13 @@ TEST_CASE("Preprocessing and Multiple Matches: starb (3)", "[3-1]") {
 }
 
 TEST_CASE("Preprocessing and No Matches: starb (3)", "[3-2]") {
+
+ /*
+real    0m0.058s
+user    0m0.036s
+sys     0m0.021s
+*/
+
     std::string text = read_file_content("../data/3_starbucks_reviews");
 
     std::string pattern = "simoneblubie";
@@ -378,6 +478,13 @@ TEST_CASE("Preprocessing and No Matches: starb (3)", "[3-2]") {
 //------------------------------------------------------------------------------------------------------------------------
 
 TEST_CASE("Preprocessing and Single Match: makeup(4)", "[4]") {
+
+/*
+real    0m0.081s
+user    0m0.050s
+sys     0m0.029s
+*/
+
     std::string text = read_file_content("../data/4_makeup");
     // std::cout << "text: " << text << std::endl;
 
@@ -405,6 +512,13 @@ TEST_CASE("Preprocessing and Single Match: makeup(4)", "[4]") {
 }
 
 TEST_CASE("Preprocessing and Multiple Matches: makeup(4)", "[4-1]") {
+
+/*
+real    0m0.077s
+user    0m0.046s
+sys     0m0.026s
+*/
+
     std::string text = read_file_content("../data/4_makeup");
 
     std::string pattern = "the th";
@@ -432,6 +546,13 @@ TEST_CASE("Preprocessing and Multiple Matches: makeup(4)", "[4-1]") {
 }
 
 TEST_CASE("Preprocessing and No Matches: makeup (4)", "[4-2]") {
+
+/*
+real    0m0.072s
+user    0m0.045s
+sys     0m0.025s
+*/
+
     std::string text = read_file_content("../data/4_makeup");
 
     std::string pattern = "archiedacoder";
@@ -469,6 +590,12 @@ TEST_CASE("Preprocessing and No Matches: makeup (4)", "[4-2]") {
 //------------------------------------------------------------------------------------------------------------------------
 
 TEST_CASE("Preprocessing and Single Match: amazon  (5) --kmp has less comparisons than naive", "[5]") {
+
+/*
+real    0m0.097s
+user    0m0.066s
+sys     0m0.029s
+*/
     std::string text = read_file_content("../data/5_amazon");
     // std::cout << "text: " << text << std::endl;
 
@@ -496,6 +623,13 @@ TEST_CASE("Preprocessing and Single Match: amazon  (5) --kmp has less comparison
 }
 
 TEST_CASE("Preprocessing and Multiple Matches: 5_amazon", "[5-1]") {
+
+/*
+real    0m0.100s
+user    0m0.062s
+sys     0m0.038s
+*/
+
     std::string text = read_file_content("../data/5_amazon");
 
     std::string pattern = "el el";
@@ -523,6 +657,13 @@ TEST_CASE("Preprocessing and Multiple Matches: 5_amazon", "[5-1]") {
 }
 
 TEST_CASE("Preprocessing and No Matches: 5_amazon", "[5-2]") {
+
+/*
+real    0m0.101s
+user    0m0.062s
+sys     0m0.032s
+*/
+
     std::string text = read_file_content("../data/5_amazon");
 
     std::string pattern = "yooooooooooo";
