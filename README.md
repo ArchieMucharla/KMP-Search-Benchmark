@@ -69,17 +69,17 @@ Our tests can be found in the `tests/` directory. We have separated our tests in
 
 # Data 
 
-The test data can be found in the `data/` directory. All data was sourced from Kaggle.com. These are their original links:
+The test data can be found in the `data/` directory. The code we used for data cleaning is called `data_cleaning.ipymb`. All data was sourced from Kaggle.com; these are their original links:
 
-Spotify songs: https://www.kaggle.com/datasets/sujaykapadnis/spotify-songs
+* [Spotify songs]([url](https://www.kaggle.com/datasets/sujaykapadnis/spotify-songs))
 
-Amazon UK Products: https://www.kaggle.com/datasets/asaniczka/amazon-uk-products-dataset-2023
+* Amazon UK Products: https://www.kaggle.com/datasets/asaniczka/amazon-uk-products-dataset-2023
 
-Horror Movies: https://www.kaggle.com/datasets/sujaykapadnis/horror-movies-profits-dataset
+* Horror Movies: https://www.kaggle.com/datasets/sujaykapadnis/horror-movies-profits-dataset
 
-Starbucks Reviews: https://www.kaggle.com/datasets/harshalhonde/starbucks-reviews-dataset)
+* Starbucks Reviews: https://www.kaggle.com/datasets/harshalhonde/starbucks-reviews-dataset)
 
-Makeup Products: https://www.kaggle.com/datasets/shivd24coder/cosmetic-brand-products-dataset?select=output.csv
+* Makeup Products: https://www.kaggle.com/datasets/shivd24coder/cosmetic-brand-products-dataset?select=output.csv
 
 
 # Written Report
