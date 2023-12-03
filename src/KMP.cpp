@@ -17,6 +17,10 @@ void preprocess_pattern(const std::string& pattern, std::vector<int>& lps) {
     // LPS of the first character is always 0
     lps[0] = 0;
 
+    if(pattern.size() == 0) {
+        return;
+    }
+
     // Calculate lps[i]
     while (i < (int) pattern.size()) {
         // Check if the current character of the pattern matches with the character at 'length' index
@@ -47,10 +51,14 @@ void preprocess_pattern(const std::string& pattern, std::vector<int>& lps) {
 // @param lps: The preprocessed Longest Prefix Suffix (LPS) array
 // @return: A KMPResult struct containing the vector of match start indices and the total number of character comparisons
 KMPResult KMP_search(const std::string& text, const std::string& pattern, const std::vector<int>& lps) {
-    KMPResult result;
+    KMPResult result = {};
     int patternIndex = 0;
     int textIndex = 0;
     result.totalComparisons = 0;
+
+    if(pattern.size() == 0 || text.size() == 0) {
+        return result;
+    }
 
     // Loop through the entire text
     while (textIndex < (int) text.size()) {

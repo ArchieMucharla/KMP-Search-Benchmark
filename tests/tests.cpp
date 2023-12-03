@@ -143,10 +143,159 @@ sys     0m0.021s
 */
 /*
 */
-//KMP SEARCH TESTS:
+//SEARCH FUNCTION TESTS:
 //------------------------------------------------------------------------------------------------------------------------
 
 
+//KMP CORRECTNESS TESTS:
+//------------------------------------------------------------------------------------------------------------------------
+
+TEST_CASE("Simple Pattern - KMP") {
+    std::string text = "abczzzzzzzzzz";
+
+    std::string pattern = "abc";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {0};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+}
+
+TEST_CASE("Repeating Pattern - KMP") {
+    std::string text = "abcabcabcabc";
+
+    std::string pattern = "abc";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {0, 3, 6, 9};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+}
+
+TEST_CASE("Pattern Longer Than Text - KMP") {
+    std::string text = "abc";
+
+    std::string pattern = "abcd";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    preprocess_pattern(pattern, lps);
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+}
+
+TEST_CASE("Pattern with Repeated Sub-Patterns - KMP") {
+    std::string text = "ababcabcacab";
+
+    std::string pattern = "abcac";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    preprocess_pattern(pattern, lps);
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {5};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+}
+
+TEST_CASE("empty string - KMP") {
+    
+    std::string text = "";
+
+    std::string pattern = "abc";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {};
+    REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+}
+
+TEST_CASE("empty pattern - KMP") {
+    
+    std::string text = "abcabc";
+
+    std::string pattern = " ";
+    std::vector<int> lps(pattern.size(), 0);
+    
+    // Preprocess the pattern to generate the LPS array
+    preprocess_pattern(pattern, lps);
+
+    // Perform KMP search and check result
+    KMPResult kmpResult = KMP_search(text, pattern, lps);
+    std::vector<int> expectedKMPIndices = {};
+  REQUIRE(expectedKMPIndices == kmpResult.matchStartIndices);
+
+}
+
+
+
+//NAIVE CORRECTNESS TESTS:
+//------------------------------------------------------------------------------------------------------------------------
+
+TEST_CASE("Simple Pattern - Naive") {
+    std::string text = "abczzzzzz";
+
+    std::string pattern = "abc";
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {0};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+}
+
+TEST_CASE("Repeating Pattern - Naive") {
+    std::string text = "abczzabczzz";
+
+    std::string pattern = "abc";
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {0, 5};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+}
+
+TEST_CASE("Pattern Longer Than Text - Naive") {
+    std::string text = "abc";
+
+    std::string pattern = "abcd";
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+}
+
+TEST_CASE("Pattern with Repeated Sub-Patterns - Naive") {
+    std::string text = "ababcabcacab";
+
+    std::string pattern = "abcac";
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {5};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+}
+
+TEST_CASE("Empty String - Naive") {
+    std::string text = "";
+
+    std::string pattern = "abc";
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+}
+
+TEST_CASE("Empty Pattern - Naive") {
+    std::string text = "abcabc";
+
+    std::string pattern = " ";
+    KMPResult naiveResult = naive_search(text, pattern);
+    std::vector<int> expectedNaiveIndices = {};
+    REQUIRE(expectedNaiveIndices == naiveResult.matchStartIndices);
+}
 
 
 //SPOTIFY DATASET (SMALLEST)
@@ -237,6 +386,7 @@ TEST_CASE("Preprocessing and Multiple Matches: Spotify (1)", "[1-1]") {
 
     // The total number of comparisons in KMP should be less than or equal to that in the naive approach
     REQUIRE(kmpResult.totalComparisons <= naiveResult.totalComparisons);
+
  /*
 
 Times:
