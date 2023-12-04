@@ -10,11 +10,9 @@ Great job on your progress! It's common to face challenges while setting up the 
 Regarding benchmarking Big-O, we recommend using measuring execution time (you can just use any tool or function within c++). I would also run the algorithm with different input sizes to see how execution time scales with different input complexities, so you can maybe find a runtime pattern.
 
 ## Week 3: 11/20 - 11/26
-Break
+N/A Thanksigiving Break 
 
 ## Mid Project Meeting
 
-## Week 3: 11/27 - 12/03
-
-## Week 4: 12/04 - 12/06
-
+## Week 4: 11/27 - 12/03
+Good work completing the last of the work. Seems like you guys are on track to complete the project. Good luck!
