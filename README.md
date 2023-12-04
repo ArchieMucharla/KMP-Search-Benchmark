@@ -1,12 +1,10 @@
 # CS 225 EC Project Summary
-Our proposed project is to implement the Knuth-Morris-Pratt (KMP) Algorithm for finding occurrences of a string pattern within a larger string.
 
-REMEMBER TO DELETE BUILD FOLDER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-CAN WE DELETE ENTRY TOO??????
+Our proposed project is to implement the Knuth-Morris-Pratt (KMP) Algorithm for finding occurrences of a string pattern within a larger string.
 
 # Code
 
-All of our code can be found in the `src/` direcotry. We defined our functions in `KMP.h` and our source code in `KMP.cpp`.
+All of our code can be found in the `src/` directory. We defined our functions in `KMP.h` and our source code in `KMP.cpp`.
 
 # Running Instructions
 
@@ -89,7 +87,7 @@ Our written report can be found in the `documents/` directory in `final_report.p
 
 # Presentation
 
-Our video presentation can be found in the `documents/` directory in `presentation`. FINIHSH THISIIIIIIII UPDATE IT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Our video presentation can be found in the `documents/` directory in `final_presentation.md`.
 
 
 # Development Logs
