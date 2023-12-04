@@ -71,13 +71,13 @@ The test data can be found in the `data/` directory. The code we used for data c
 
 * Spotify songs: https://www.kaggle.com/datasets/sujaykapadnis/spotify-songs
 
-* Amazon UK Products: https://www.kaggle.com/datasets/asaniczka/amazon-uk-products-dataset-2023
-
 * Horror Movies: https://www.kaggle.com/datasets/sujaykapadnis/horror-movies-profits-dataset
 
 * Starbucks Reviews: https://www.kaggle.com/datasets/harshalhonde/starbucks-reviews-dataset)
 
 * Makeup Products: https://www.kaggle.com/datasets/shivd24coder/cosmetic-brand-products-dataset?select=output.csv
+
+* Amazon UK Products: https://www.kaggle.com/datasets/asaniczka/amazon-uk-products-dataset-2023
 
 
 # Written Report
