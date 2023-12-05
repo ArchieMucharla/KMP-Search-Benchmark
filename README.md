@@ -62,7 +62,7 @@ Our tests can be found in the `tests/` directory. We have separated our tests in
       
           * Compare KMP Search runtime with Naive Search runtime
 
-* Repeat for other datasets...
+    * Repeat for other datasets...
   
 
 # Data 
