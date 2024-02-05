@@ -1,4 +1,4 @@
-# CS 225 EC Project Summary
+Project Summary
 
 We implemented the Knuth-Morris-Pratt (KMP) Algorithm for finding occurrences of a string pattern within a larger string.
 
